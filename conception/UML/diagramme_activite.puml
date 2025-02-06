@@ -1,0 +1,22 @@
+@startuml VillageGreen
+start
+    :S'inscrit sur le site;
+repeat
+    backward:Erreur;
+repeat while (Se connecte)
+    repeat:Explore;
+    backward:N'est pas intéressé par les produits;
+    :Explore les catégories;
+repeat while (Explore les sous-catégories)
+    :Regarde les détails des produits des sous-catégories;
+    :Ajoute au panier;
+    :Visualise le panier;
+    :Passe la commande;
+repeat:Page de paiement;
+    backward:Erreur de paiement;
+repeat while(Validation du paiement)
+
+:Reçoit la commande;
+    :Evalue les produits;
+stop
+@enduml

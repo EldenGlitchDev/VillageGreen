@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0" version="26.0.10">
+  <diagram name="Page-1" id="MZgOmGGh94QyWuCLTppa">
+    <mxGraphModel dx="1368" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-17" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-10" target="EVte_S_7NBJ0CfrX7vxZ-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-10" value="Fournisseur" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="105" y="20" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-19" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-11" target="EVte_S_7NBJ0CfrX7vxZ-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-11" value="Commercial" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="665" y="20" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-15" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-12" target="EVte_S_7NBJ0CfrX7vxZ-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-12" value="Client" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="384" y="20" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-14" value="Passer la commande" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="339" y="180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-16" value="Approvisionne les stocks" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-18" value="Gère les relations clients" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="190" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-39" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-22" target="EVte_S_7NBJ0CfrX7vxZ-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-22" value="Client" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-23" value="Recherche des instruments" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="460" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-24" value="Ajoute au panier des instruments" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="590" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-25" value="Commande des instruments" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="740" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-46" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-26" target="EVte_S_7NBJ0CfrX7vxZ-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-26" value="Paye la commande" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="870" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-27" value="Evalue des produits" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384" y="870" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-40" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-33" target="EVte_S_7NBJ0CfrX7vxZ-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-33" value="&lt;div&gt;S&#39;inscrit sur le site&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="390" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-35" value="Regarde les catégories/sous-catégories" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384" y="390" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-48" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-36" target="EVte_S_7NBJ0CfrX7vxZ-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-36" value="Regarde le détails des produits" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="590" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-41" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.017;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-35" target="EVte_S_7NBJ0CfrX7vxZ-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-45" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.1;entryY=0.225;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-25" target="EVte_S_7NBJ0CfrX7vxZ-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-47" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.983;entryY=0.288;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-23" target="EVte_S_7NBJ0CfrX7vxZ-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EVte_S_7NBJ0CfrX7vxZ-49" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.783;entryY=0.038;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="EVte_S_7NBJ0CfrX7vxZ-24" target="EVte_S_7NBJ0CfrX7vxZ-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
