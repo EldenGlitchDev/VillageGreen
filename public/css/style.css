@@ -1,0 +1,23 @@
+body {
+    background-color: #956E4C;
+}
+
+#blackFooter {
+    background-color: black;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Affiche les éléments de manière horizontale */
+    gap: 20px;
+}
+
+ul li {
+    display: flex; /* Utilise le flexbox pour aligner l'icône et le texte */
+    align-items: center;
+}
+
+ul li i {
+    margin-right: 8px;
+}
