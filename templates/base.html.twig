@@ -1,123 +1,147 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
-        <title>{% block title %}Village Green{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/da80070cec.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+		<title>
+			{% block title %}Village Green
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		<script src="https://kit.fontawesome.com/da80070cec.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="{{ asset('/css/style.css') }}"> {% block stylesheets %}{% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
 
-<div class = "container-fuild">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-</div>
-
-
-        {% block body %}{% endblock %}
-
-
-<footer>
-
-    <div class="container-fluid">
-        <div class="row">
-
-          <!--div class="d-flex justify-content-start"-->
-            <p>Vous aimez ce site ? Partagez le à votre entourage !</p>
-            
-                <ul>
-                    <li><i class="fa-brands fa-square-facebook" style="color: #ffffff;"></i></li><p>Partager</p>
-                    <li><i class="fa-brands fa-square-x-twitter" style="color: #ffffff;"></i></li><p>Partager</p>
-                    <li><i class="fa-solid fa-envelope" style="color: #ffffff;"></i></li><p>Email</p>
-                    <li><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i></li><p>Donner un avis</p>
-                </ul>
-
-          <!--/div-->
-        
-            <p>Intéressez par notre Newletter ?</p>
-        
-<form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Saisissez votre adresse Email" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">S'inscrire maintenant</button>
-      </form>
-
-        <p>En cliquant sur “S’inscrire maintenant”, vous acceptez de recevoir des publicités par email. La désinscription à notre Newsletter est possible à tout moment. Vous pouvez trouver plus d’nformations à ce sujet dans notre Politique de confidentialité.</p>
-
-            <p>Achetez et payez sur notre site en toute sécurité !</p>
-        
-        <ul>
-                    <li><i class="fa-brands fa-paypal" style="color: #ffffff;"></i></li>
-                    <li><i class="fa-brands fa-cc-mastercard" style="color: #ffffff;"></i></li>
-                    <li><i class="fa-brands fa-cc-visa" style="color: #ffffff;"></i></li>
-                    <li><i class="fa-brands fa-cc-amex" style="color: #ffffff;"></i></li>
-                </ul>
-
-<p>Politique de confidentialité</p>
-<p>Mentions légales</p>
-<p>Frais de port et de livraison</p>
-<p>Nous contacter</p>
-
-<i class="fa-brands fa-github" style="color: #ffffff;"></i><p>EldenGlitchDev</p>
-        
-        </div>
-    </div>
+		<div class="container-fuild">
+			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Navbar</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Link</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Dropdown
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a class="dropdown-item" href="#">Action</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">Another action</a>
+									</li>
+									<li><hr class="dropdown-divider"></li>
+									<li>
+										<a class="dropdown-item" href="#">Something else here</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+							</li>
+						</ul>
+						<form class="d-flex" role="search">
+							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
+				</div>
+			</nav>
+		</div>
 
 
-</footer>
+		{% block body %}{% endblock %}
+
+
+		<footer>
+
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-md-4">
+						<h5 class="text-center mb-4 mt-3">Vous aimez ce site ? Partagez le à votre entourage !</h5>
+
+						<ul>
+							<li class="reseauSociauxFooter d-flex justify-content-start">
+								<i class="fa-brands fa-square-facebook iconeSizeFooter" style="color: #ffffff;"></i><p class="txtPartageFooter">Partager sur Facebook</p>
+							</li>
+							<li class="reseauSociauxFooter d-flex justify-content-start">
+								<i class="fa-brands fa-square-x-twitter iconeSizeFooter" style="color: #ffffff;"></i><p class="txtPartageFooter">Partager sur X</p>
+							</li>
+							<li class="reseauSociauxFooter d-flex justify-content-start">
+								<i class="fa-solid fa-envelope iconeSizeFooter" style="color: #ffffff;"></i><p class="txtPartageFooter">Envoyez un Email</p>
+							</li>
+							<li class="reseauSociauxFooter d-flex justify-content-start">
+								<i class="fa-solid fa-thumbs-up iconeSizeFooter" style="color: #ffffff;"></i><p class="txtPartageFooter">Donner un avis</p>
+							</li>
+						</ul>
+					</div>
 
 
 
+					<div class="col-md-4">
+						<h5 class="text-center mb-4 mt-3">Intéressez par notre Newletter ?</h5>
+						<div class="mb-3">
+            <form class="d-flex custom-form" role="search">
+							<input class="form-control me-2" type="search" placeholder="Saisissez votre adresse Email" aria-label="Search">
+              </div>
+							<button class="btn btn-outline-success buttonMailFooter" type="submit">S'inscrire maintenant</button>
+						</form>
+						<small class="d-block mt-3">En cliquant sur “S’inscrire maintenant”, vous acceptez de recevoir des publicités par email. La désinscription à notre Newsletter est possible à tout moment. Vous pouvez trouver plus d’nformations à ce sujet dans notre Politique de confidentialité.</small>
+					</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
+
+					<div class="col-md-4">
+						<h5 class="text-center mb-4 mt-3">Achetez et payez sur notre site en toute sécurité !</h5>
+						<ul class="list-unstyled">
+							<li class="mb-0 p-0">
+								<i class="fa-brands fa-paypal iconeSizeFooter" style="color: #ffffff;"></i>
+							</li>
+							<li class="mb-2 p-0">
+								<i class="fa-brands fa-cc-mastercard iconeSizeFooter" style="color: #ffffff;"></i>
+							</li>
+							<li class="mb-2 p-0">
+								<i class="fa-brands fa-cc-visa iconeSizeFooter" style="color: #ffffff;"></i>
+							</li>
+							<li class="mb-2 p-0">
+								<i class="fa-brands fa-cc-amex iconeSizeFooter" style="color: #ffffff;"></i>
+							</li>
+						</ul>
+
+						<p>Politique de confidentialité</p>
+						<p>Mentions légales</p>
+						<p>Frais de port et de livraison</p>
+						<p>Nous contacter</p>
+
+						<i class="fa-brands fa-github" style="color: #ffffff;"></i>
+						<p>EldenGlitchDev</p>
+						<div class="col-md-4"></div>
+					</div>
 
 
+				</footer>
 
 
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+			</body>
 
 
-
+		</html>
+	</body>
 </html>
