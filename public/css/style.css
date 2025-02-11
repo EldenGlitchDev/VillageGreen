@@ -2,22 +2,26 @@ body {
     background-color: #956E4C;
 }
 
-#blackFooter {
+footer {
     background-color: black;
 }
 
-ul {
+/*ul {
     list-style: none;
     padding: 0;
-    display: flex; /* Affiche les éléments de manière horizontale */
+    display: flex; Affiche les éléments de manière horizontale
     gap: 20px;
-}
+}*/
 
-ul li {
-    display: flex; /* Utilise le flexbox pour aligner l'icône et le texte */
+/*ul li {
+    display: flex;  Utilise le flexbox pour aligner l'icône et le texte
     align-items: center;
-}
+}*/
 
-ul li i {
+/*ul li i {
     margin-right: 8px;
+}*/
+
+p {
+    color:white;
 }
