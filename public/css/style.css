@@ -32,3 +32,19 @@ p, h5, small {
 .buttonMailFooter {
     margin-left: 200px;
 }
+
+.iconeGithubFooter {
+    margin-top: 37px;
+}
+
+#EldenGlitchDev {
+    margin-top: 37px;
+    font-size: 11px;
+}
+
+hr {
+    height : 4px;
+    background-color: white;
+    
+    width: 100%;
+}
