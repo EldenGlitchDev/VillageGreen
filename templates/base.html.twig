@@ -18,52 +18,86 @@
 			{% endblock %}
 		{% endblock %}
 	</head>
+
 	<body>
 
-		<div class="container-fuild">
-			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<header>
+
+			<!--div class="container-fluid p-0">
+							<nav class="navbar navbar-expand-lg headerBackground p-0">
+								<div class="container-fluid">
+									<a href="#"><img src="#" alt="logoAccueil" width="150" height="110" class="mx-3" class="img-fluid"></a>
+									<button class="navbar-toggler couleurbouton boutonderoulant" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+										<span class="navbar-toggler-icon"></span>
+									</button>
+									<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+										<div class="navbar-nav">
+										<form class="d-flex d-lg-none">
+												<input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
+												<button class="btn btn-outline-light" type="submit">Rechercher</button>
+											</form>
+											<a class="nav-link mx-4 px-2 couleurbouton" aria-current="page" href="#"></a>
+											<a class="nav-link mx-4 px-2 couleurbouton" aria-current="page" href="#"></a>
+											<a class="nav-link mx-4 px-2 couleurbouton" aria-current="page" href="#"></a>
+											<a class="nav-link mx-4 px-2 couleurbouton" href="#"></a>
+			
+											<a class="nav-link mx-4 px-2 iconeBouton" href="#" id="panier-link">
+												<i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+												<span id="nombre-items"></span>
+											</a>
+			
+												<a class="nav-link mx-5 px-4 couleurbouton" href="#">
+													<i class="fa-solid fa-user" style="color: #26a269;" title="Connected" alt="connected"></i>
+												</a>
+												<a class="nav-link mx-2 px-2 couleurbouton" href="#">
+													<i class="fa-solid fa-right-from-bracket" style="color: #e01b24;" title="Logout" alt="logout"></i>
+												</a>
+			
+												<a class="nav-link mx-5 px-4 couleurbouton" href="#">
+													<i class="fa-solid fa-user" style="color: #e01b24;" title="Disconnected" alt="disconnected"></i>
+												</a>
+			
+			
+											<form class="d-flex d-lg-none">
+												<input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
+												<button class="btn btn-outline-light" type="submit">Rechercher</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</nav>
+						</div-->
+
+			<nav class="navbar navbar-expand-lg headerBackground">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="#">Navbar</a>
+					<a class="navbar-brand" href="#"><img src="{{ asset ('./img/icones/icons8-accueil-100.png') }}" alt="accueil" width="150" height="110" class="mx-3" class="img-fluid"></a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
+					<form class="d-flex" role="search">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#">Home</a>
+								<a class="nav-link" aria-current="page" href="#"><img src="#" alt="panier"></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									Dropdown
-								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a class="dropdown-item" href="#">Action</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">Another action</a>
-									</li>
-									<li><hr class="dropdown-divider"></li>
-									<li>
-										<a class="dropdown-item" href="#">Something else here</a>
-									</li>
-								</ul>
+								<a class="nav-link" href="#"><img src="#" alt="connexion"></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+								<a class="nav-link" href="#"><img src="#" alt="profil"></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#"><img src="#" alt="deconnexion"></a>
 							</li>
 						</ul>
-						<form class="d-flex" role="search">
-							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-							<button class="btn btn-outline-success" type="submit">Search</button>
-						</form>
 					</div>
 				</div>
 			</nav>
-		</div>
+
+		</header>
 
 
 		{% block body %}{% endblock %}
@@ -150,9 +184,9 @@
 
 
 				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
 			</body>
-
-
 		</html>
 	</body>
 </html>

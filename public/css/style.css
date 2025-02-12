@@ -1,6 +1,14 @@
+/*Header*/
+
+.headerBackground {
+    background-color: #784833;
+}
+
 body {
     background-color: #956E4C;
 }
+
+/*Footer*/
 
 footer {
     background-color: black;
