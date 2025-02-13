@@ -9,7 +9,7 @@ services:
   web:
     build: .
     ports:
-      - 81:80
+      - 82:80
     volumes:
       - .:/var/www
 

@@ -8,6 +8,20 @@ body {
     background-color: #956E4C;
 }
 
+.VillageGreenTitle {
+    font-weight: bolder;
+    font-size: 80px;
+    color: #C67B12;
+    /*border-style: double;
+    border-radius: 5px;*/
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.9), /* Ombre à droite et en bas */
+        -2px -2px 4px rgba(0, 0, 0, 0.9), /* Ombre à gauche et en haut */
+        2px -2px 4px rgba(0, 0, 0, 0.9), /* Ombre en haut à droite */
+        -2px 2px 4px rgba(0, 0, 0, 0.9); /* Ombre en bas à gauche */
+    margin-left: 220px;
+}
+
 /*Footer*/
 
 footer {
