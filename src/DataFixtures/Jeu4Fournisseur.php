@@ -5,7 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class Article extends Fixture
+class Jeu4Fournisseur extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
