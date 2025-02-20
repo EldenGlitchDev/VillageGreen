@@ -16,9 +16,6 @@ class A
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $idUtil = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $idPromo = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -32,18 +29,6 @@ class A
     public function setIdUtil(?string $idUtil): static
     {
         $this->idUtil = $idUtil;
-
-        return $this;
-    }
-
-    public function getIdPromo(): ?string
-    {
-        return $this->idPromo;
-    }
-
-    public function setIdPromo(?string $idPromo): static
-    {
-        $this->idPromo = $idPromo;
 
         return $this;
     }

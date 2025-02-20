@@ -20,7 +20,7 @@ class Commander
     private ?string $idComm = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $quantiteCommande = null;
+    private ?int $quantite_commande = null;
 
     public function getId(): ?int
     {
@@ -53,12 +53,12 @@ class Commander
 
     public function getQuantiteCommande(): ?int
     {
-        return $this->quantiteCommande;
+        return $this->quantite_commande;
     }
 
-    public function setQuantiteCommande(?int $quantiteCommande): static
+    public function setQuantiteCommande(?int $quantite_commande): static
     {
-        $this->quantiteCommande = $quantiteCommande;
+        $this->quantite_commande = $quantite_commande;
 
         return $this;
     }

@@ -23,8 +23,8 @@ class Article
     #[ORM\Column(length: 50)]
     private ?string $accessoireArt = null;
 
-    #[ORM\Column]
-    private ?int $prixArt = null;
+    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
+    private ?string $prixArt = null;
 
     #[ORM\Column(length: 50)]
     private ?string $marqueArt = null;
@@ -35,7 +35,7 @@ class Article
     #[ORM\Column]
     private ?int $quStockArt = null;
 
-    #[ORM\Column(length: 250, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photoArt = null;
 
     #[ORM\Column(length: 50, nullable: true)]
@@ -91,12 +91,12 @@ class Article
         return $this;
     }
 
-    public function getPrixArt(): ?int
+    public function getPrixArt(): ?string
     {
         return $this->prixArt;
     }
 
-    public function setPrixArt(int $prixArt): static
+    public function setPrixArt(string $prixArt): static
     {
         $this->prixArt = $prixArt;
 

@@ -2,19 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\BondeLivraisonRepository;
+use App\Repository\BonDeLivraisonRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: BondeLivraisonRepository::class)]
-class BondeLivraison
+#[ORM\Entity(repositoryClass: BonDeLivraisonRepository::class)]
+class BonDeLivraison
 {
-    //#[ORM\Id]
-    //#[ORM\GeneratedValue]
-    //#[ORM\Column]
-    //private ?int $id = null;
-
     #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
     #[ORM\Column(length: 50)]
     private ?string $noFactBon = null;
 
@@ -49,7 +48,7 @@ class BondeLivraison
     private ?string $noTVABon = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $detailTransaction = null;
+    private ?string $detailTransacBon = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
     private ?string $prixUnitHTVABon = null;
@@ -67,15 +66,15 @@ class BondeLivraison
     private ?string $remiseBon = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $totalHTVATTCBon = null;
+    private ?string $totalHTVA_TTCBon = null;
 
     #[ORM\Column(length: 50)]
     private ?string $idComm = null;
 
-    //public function getId(): ?int
-    //{
-    //    return $this->id;
-    //}
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getNoFactBon(): ?string
     {
@@ -209,14 +208,14 @@ class BondeLivraison
         return $this;
     }
 
-    public function getDetailTransaction(): ?string
+    public function getDetailTransacBon(): ?string
     {
-        return $this->detailTransaction;
+        return $this->detailTransacBon;
     }
 
-    public function setDetailTransaction(string $detailTransaction): static
+    public function setDetailTransacBon(string $detailTransacBon): static
     {
-        $this->detailTransaction = $detailTransaction;
+        $this->detailTransacBon = $detailTransacBon;
 
         return $this;
     }
@@ -283,12 +282,12 @@ class BondeLivraison
 
     public function getTotalHTVATTCBon(): ?string
     {
-        return $this->totalHTVATTCBon;
+        return $this->totalHTVA_TTCBon;
     }
 
-    public function setTotalHTVATTCBon(string $totalHTVATTCBon): static
+    public function setTotalHTVATTCBon(string $totalHTVA_TTCBon): static
     {
-        $this->totalHTVATTCBon = $totalHTVATTCBon;
+        $this->totalHTVA_TTCBon = $totalHTVA_TTCBon;
 
         return $this;
     }

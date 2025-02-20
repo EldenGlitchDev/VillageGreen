@@ -16,7 +16,7 @@ class Categorie
     #[ORM\Column(length: 50)]
     private ?string $nomCat = null;
 
-    #[ORM\Column(length: 250, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageCat = null;
 
     #[ORM\Column(length: 50)]

@@ -15,25 +15,25 @@ class Commande
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $DateComm = null;
+    private ?\DateTimeInterface $dateComm = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $DateLivrComm = null;
+    private ?\DateTimeInterface $dateLivrComm = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $PrixTotComm = null;
+    private ?string $prixTotalComm = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $PrixUnitComm = null;
+    private ?string $prixUnitComm = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $LibelleComm = null;
+    private ?string $libelleComm = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $StatutComm = null;
+    private ?string $statutComm = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $UtilComm = null;
+    private ?string $utilComm = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
     private ?string $sousTotalComm = null;
@@ -78,84 +78,84 @@ class Commande
 
     public function getDateComm(): ?\DateTimeInterface
     {
-        return $this->DateComm;
+        return $this->dateComm;
     }
 
-    public function setDateComm(\DateTimeInterface $DateComm): static
+    public function setDateComm(\DateTimeInterface $dateComm): static
     {
-        $this->DateComm = $DateComm;
+        $this->dateComm = $dateComm;
 
         return $this;
     }
 
     public function getDateLivrComm(): ?\DateTimeInterface
     {
-        return $this->DateLivrComm;
+        return $this->dateLivrComm;
     }
 
-    public function setDateLivrComm(\DateTimeInterface $DateLivrComm): static
+    public function setDateLivrComm(\DateTimeInterface $dateLivrComm): static
     {
-        $this->DateLivrComm = $DateLivrComm;
+        $this->dateLivrComm = $dateLivrComm;
 
         return $this;
     }
 
-    public function getPrixTotComm(): ?string
+    public function getPrixTotalComm(): ?string
     {
-        return $this->PrixTotComm;
+        return $this->prixTotalComm;
     }
 
-    public function setPrixTotComm(string $PrixTotComm): static
+    public function setPrixTotalComm(string $prixTotalComm): static
     {
-        $this->PrixTotComm = $PrixTotComm;
+        $this->prixTotalComm = $prixTotalComm;
 
         return $this;
     }
 
     public function getPrixUnitComm(): ?string
     {
-        return $this->PrixUnitComm;
+        return $this->prixUnitComm;
     }
 
-    public function setPrixUnitComm(string $PrixUnitComm): static
+    public function setPrixUnitComm(string $prixUnitComm): static
     {
-        $this->PrixUnitComm = $PrixUnitComm;
+        $this->prixUnitComm = $prixUnitComm;
 
         return $this;
     }
 
     public function getLibelleComm(): ?string
     {
-        return $this->LibelleComm;
+        return $this->libelleComm;
     }
 
-    public function setLibelleComm(string $LibelleComm): static
+    public function setLibelleComm(string $libelleComm): static
     {
-        $this->LibelleComm = $LibelleComm;
+        $this->libelleComm = $libelleComm;
 
         return $this;
     }
 
     public function getStatutComm(): ?string
     {
-        return $this->StatutComm;
+        return $this->statutComm;
     }
 
-    public function setStatutComm(string $StatutComm): static
+    public function setStatutComm(string $statutComm): static
     {
-        $this->StatutComm = $StatutComm;
+        $this->statutComm = $statutComm;
 
         return $this;
     }
 
     public function getUtilComm(): ?string
     {
-        return $this->UtilComm;
+        return $this->utilComm;
     }
 
-    public function setUtilComm(string $UtilComm): static
+    public function setUtilComm(string $utilComm): static
     {
-        $this->UtilComm = $UtilComm;
+        $this->utilComm = $utilComm;
 
         return $this;
     }

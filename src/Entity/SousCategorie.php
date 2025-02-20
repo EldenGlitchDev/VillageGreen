@@ -14,10 +14,10 @@ class SousCategorie
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $nomSousCat = null;
+    private ?string $NomSousCat = null;
 
-    #[ORM\Column(length: 250, nullable: true)]
-    private ?string $imageSousCat = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ImageSousCat = null;
 
     public function getId(): ?int
     {
@@ -26,24 +26,24 @@ class SousCategorie
 
     public function getNomSousCat(): ?string
     {
-        return $this->nomSousCat;
+        return $this->NomSousCat;
     }
 
-    public function setNomSousCat(string $nomSousCat): static
+    public function setNomSousCat(string $NomSousCat): static
     {
-        $this->nomSousCat = $nomSousCat;
+        $this->NomSousCat = $NomSousCat;
 
         return $this;
     }
 
     public function getImageSousCat(): ?string
     {
-        return $this->imageSousCat;
+        return $this->ImageSousCat;
     }
 
-    public function setImageSousCat(?string $imageSousCat): static
+    public function setImageSousCat(?string $ImageSousCat): static
     {
-        $this->imageSousCat = $imageSousCat;
+        $this->ImageSousCat = $ImageSousCat;
 
         return $this;
     }

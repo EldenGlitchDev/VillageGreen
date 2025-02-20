@@ -17,10 +17,10 @@ class Sort
     private ?string $idArt = null;
 
     #[ORM\Column(length: 50, nullable: true)]
-    private ?string $NoFactBon = null;
+    private ?string $IDBon_de_livraison = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $quantiteBonLivraison = null;
+    private ?int $quantite_bon_livraison = null;
 
     public function getId(): ?int
     {
@@ -39,26 +39,26 @@ class Sort
         return $this;
     }
 
-    public function getNoFactBon(): ?string
+    public function getIDBonDeLivraison(): ?string
     {
-        return $this->NoFactBon;
+        return $this->IDBon_de_livraison;
     }
 
-    public function setNoFactBon(?string $NoFactBon): static
+    public function setIDBonDeLivraison(?string $IDBon_de_livraison): static
     {
-        $this->NoFactBon = $NoFactBon;
+        $this->IDBon_de_livraison = $IDBon_de_livraison;
 
         return $this;
     }
 
     public function getQuantiteBonLivraison(): ?int
     {
-        return $this->quantiteBonLivraison;
+        return $this->quantite_bon_livraison;
     }
 
-    public function setQuantiteBonLivraison(?int $quantiteBonLivraison): static
+    public function setQuantiteBonLivraison(?int $quantite_bon_livraison): static
     {
-        $this->quantiteBonLivraison = $quantiteBonLivraison;
+        $this->quantite_bon_livraison = $quantite_bon_livraison;
 
         return $this;
     }

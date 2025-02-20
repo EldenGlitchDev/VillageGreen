@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\BondeLivraison;
+use App\Entity\BonDeLivraison;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<BondeLivraison>
+ * @extends ServiceEntityRepository<BonDeLivraison>
  */
-class BondeLivraisonRepository extends ServiceEntityRepository
+class BonDeLivraisonRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, BondeLivraison::class);
+        parent::__construct($registry, BonDeLivraison::class);
     }
 
     //    /**
-    //     * @return BondeLivraison[] Returns an array of BondeLivraison objects
+    //     * @return BonDeLivraison[] Returns an array of BonDeLivraison objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class BondeLivraisonRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?BondeLivraison
+    //    public function findOneBySomeField($value): ?BonDeLivraison
     //    {
     //        return $this->createQueryBuilder('b')
     //            ->andWhere('b.exampleField = :val')
