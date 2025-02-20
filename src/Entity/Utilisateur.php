@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UtilisateurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -51,6 +53,31 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 50)]
     private ?string $mdpUtil = null;
+
+    /**
+     * @var Collection<int, Commande>
+     */
+    #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'utilisateur')]
+    private Collection $commande;
+
+    /**
+     * @var Collection<int, Avis>
+     */
+    #[ORM\OneToMany(targetEntity: Avis::class, mappedBy: 'utilisateur')]
+    private Collection $avis;
+
+    /**
+     * @var Collection<int, Avis>
+     */
+    #[ORM\OneToMany(targetEntity: Avis::class, mappedBy: 'user')]
+    private Collection $avisUtil;
+
+    public function __construct()
+    {
+        $this->commande = new ArrayCollection();
+        $this->avis = new ArrayCollection();
+        $this->avisUtil = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -207,6 +234,96 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     public function setMdpUtil(string $mdpUtil): static
     {
         $this->mdpUtil = $mdpUtil;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommande(): Collection
+    {
+        return $this->commande;
+    }
+
+    public function addCommande(Commande $commande): static
+    {
+        if (!$this->commande->contains($commande)) {
+            $this->commande->add($commande);
+            $commande->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): static
+    {
+        if ($this->commande->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getUtilisateur() === $this) {
+                $commande->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Avis>
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): static
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis->add($avi);
+            $avi->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): static
+    {
+        if ($this->avis->removeElement($avi)) {
+            // set the owning side to null (unless already changed)
+            if ($avi->getUtilisateur() === $this) {
+                $avi->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Avis>
+     */
+    public function getAvisUtil(): Collection
+    {
+        return $this->avisUtil;
+    }
+
+    public function addAvisUtil(Avis $avisUtil): static
+    {
+        if (!$this->avisUtil->contains($avisUtil)) {
+            $this->avisUtil->add($avisUtil);
+            $avisUtil->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvisUtil(Avis $avisUtil): static
+    {
+        if ($this->avisUtil->removeElement($avisUtil)) {
+            // set the owning side to null (unless already changed)
+            if ($avisUtil->getUser() === $this) {
+                $avisUtil->setUser(null);
+            }
+        }
 
         return $this;
     }
