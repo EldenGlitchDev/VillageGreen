@@ -46,12 +46,12 @@ class Jeu5Commande extends Fixture
 
                     $commandes = new Commande();
 
-                    $dateCommDate = new \DateTime($dateComm);
-                    $dateLivrCommDate = new \DateTime($dateLivrComm);
-                    $datePaiemDate = new \DateTime($datePaiem);
+                    $dateCommDateTime = new \DateTime($dateComm);
+                    $dateLivrCommDateTime = new \DateTime($dateLivrComm);
+                    $datePaiemDateTime = new \DateTime($datePaiem);
 
-                    $commandes->setDateComm($dateCommDate)
-                              ->setDateLivrComm($dateLivrCommDate)
+                    $commandes->setDateComm($dateCommDateTime)
+                              ->setDateLivrComm($dateLivrCommDateTime)
                               ->setPrixTotalComm($prixTotalComm)
                               ->setPrixUnitComm($prixUnitComm)
                               ->setLibelleComm($libelleComm)
@@ -60,7 +60,7 @@ class Jeu5Commande extends Fixture
                               ->setSousTotalComm($sousTotalComm)
                               ->setFdp($fdp)
                               ->setMontantPaiem($montantPaiem)
-                              ->setDatePaiem($datePaiemDate)
+                              ->setDatePaiem($datePaiemDateTime)
                               ->setStatutPaiem($statutPaiem)
                               ->setMethodePaiem($methodePaiem)
                               ->setCommandePaiem($commandePaieme)
