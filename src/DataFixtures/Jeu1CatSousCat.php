@@ -23,16 +23,6 @@ class Jeu1CatSousCat extends Fixture
             ['Equipement audio et enregistrement', 'equipements_audio_enregistrementCat.png', 28],
         ];
 
-        foreach ($donneesCategories as [$nomCat, $imageCat, $idSousCat]) {
-        
-        $categories = new Categorie();
-        
-        $categories->setNomCat($nomCat)
-                   ->setImageCat($imageCat)
-                   ->setIdSousCat($idSousCat);
-        $manager -> persist($categories);
-        }
-
         $donneesSousCategories=[
 
             /*Instruments à cordes*/
@@ -91,6 +81,7 @@ class Jeu1CatSousCat extends Fixture
             ['Enceintes', 'enceinte_SousCat.png'],
         ];
 
+        
         foreach ($donneesSousCategories as [$nomSousCat, $imageSousCat]) {
 
             $sousCategories = new SousCategorie();
@@ -99,10 +90,29 @@ class Jeu1CatSousCat extends Fixture
                            ->setImageSousCat($imageSousCat);
 
             $manager->persist($sousCategories);
-
         }
 
+            $manager->flush();
 
+        foreach ($donneesCategories as [$nomCat, $imageCat, $indexSousCat]) {
+        
+            $categories = new Categorie();
+            
+            $categories->setNomCat($nomCat)
+                       ->setImageCat($imageCat);
+                       //->setIdSousCat($idSousCat);
+
+            $sousCategories = $manager->getRepository(SousCategorie::class)->find($indexSousCat +1 );
+            if ($sousCategories) {
+            $categories->setSousCategorie($sousCategories);
+            } else {
+                throw new \Exception("Sous catégorie avec ID $indexSousCat non trouvée");
+            }
+
+            $manager -> persist($categories);
+        }
+
+        
 
         $manager->flush();
     }

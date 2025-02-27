@@ -21,8 +21,8 @@ class Categorie
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageCat = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $idSousCat = null;
+   // #[ORM\Column(length: 50, nullable: true)] /*modifié*/
+   // private ?string $idSousCat = null;
 
     #[ORM\ManyToOne(inversedBy: 'categorie')]
     private ?SousCategorie $sousCategorie = null;
@@ -67,7 +67,7 @@ class Categorie
         return $this;
     }
 
-    public function getIdSousCat(): ?string
+    /*public function getIdSousCat(): ?string
     {
         return $this->idSousCat;
     }
@@ -77,7 +77,7 @@ class Categorie
         $this->idSousCat = $idSousCat;
 
         return $this;
-    }
+    }*/
 
     public function getSousCategorie(): ?SousCategorie
     {
