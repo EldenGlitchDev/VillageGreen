@@ -67,6 +67,15 @@ p, h5, small {
 hr {
     height : 4px;
     background-color: white;
-    
     width: 100%;
+}
+
+/*Page d'accueil*/
+
+.barreListeCat {
+    background-color: black;
+}
+
+ul.list-unstyled li {
+    margin-right: 55px;
 }
