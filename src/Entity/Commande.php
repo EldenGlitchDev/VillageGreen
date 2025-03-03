@@ -73,31 +73,17 @@ class Commande
     #[ORM\Column(length: 50)]
     private ?string $idUtil = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commande')]
-    private ?Utilisateur $utilisateur = null;
-
-    /**
-     * @var Collection<int, BonDeLivraison>
-     */
-    #[ORM\OneToMany(targetEntity: BonDeLivraison::class, mappedBy: 'commande')]
-    private Collection $bon_de_livraison;
-
-    /**
-     * @var Collection<int, Appliquer>
-     */
-    #[ORM\OneToMany(targetEntity: Appliquer::class, mappedBy: 'commande')]
-    private Collection $appliquer;
-
     /**
      * @var Collection<int, Article>
      */
     #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'commande')]
     private Collection $articles;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Utilisateur $utilisateur = null;
+
     public function __construct()
     {
-        $this->bon_de_livraison = new ArrayCollection();
-        $this->appliquer = new ArrayCollection();
         $this->articles = new ArrayCollection();
     }
 
@@ -334,78 +320,6 @@ class Commande
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
-    {
-        return $this->utilisateur;
-    }
-
-    public function setUtilisateur(?Utilisateur $utilisateur): static
-    {
-        $this->utilisateur = $utilisateur;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, BonDeLivraison>
-     */
-    public function getBonDeLivraison(): Collection
-    {
-        return $this->bon_de_livraison;
-    }
-
-    public function addBonDeLivraison(BonDeLivraison $bonDeLivraison): static
-    {
-        if (!$this->bon_de_livraison->contains($bonDeLivraison)) {
-            $this->bon_de_livraison->add($bonDeLivraison);
-            $bonDeLivraison->setCommande($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBonDeLivraison(BonDeLivraison $bonDeLivraison): static
-    {
-        if ($this->bon_de_livraison->removeElement($bonDeLivraison)) {
-            // set the owning side to null (unless already changed)
-            if ($bonDeLivraison->getCommande() === $this) {
-                $bonDeLivraison->setCommande(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Appliquer>
-     */
-    public function getAppliquer(): Collection
-    {
-        return $this->appliquer;
-    }
-
-    public function addAppliquer(Appliquer $appliquer): static
-    {
-        if (!$this->appliquer->contains($appliquer)) {
-            $this->appliquer->add($appliquer);
-            $appliquer->setCommande($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAppliquer(Appliquer $appliquer): static
-    {
-        if ($this->appliquer->removeElement($appliquer)) {
-            // set the owning side to null (unless already changed)
-            if ($appliquer->getCommande() === $this) {
-                $appliquer->setCommande(null);
-            }
-        }
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Article>
      */
@@ -429,6 +343,18 @@ class Commande
         if ($this->articles->removeElement($article)) {
             $article->removeCommande($this);
         }
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

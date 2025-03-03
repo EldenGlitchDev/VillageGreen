@@ -21,8 +21,8 @@ class Categorie
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageCat = null;
 
-   // #[ORM\Column(length: 50, nullable: true)] /*modifié*/
-   // private ?string $idSousCat = null;
+    #[ORM\Column(length: 50)]
+    private ?string $idSousCat = null;
 
     #[ORM\ManyToOne(inversedBy: 'categorie')]
     private ?SousCategorie $sousCategorie = null;
@@ -30,7 +30,7 @@ class Categorie
     /**
      * @var Collection<int, Article>
      */
-    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'categorie')]
+    #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'categories')]
     private Collection $article;
 
     public function __construct()
@@ -67,7 +67,7 @@ class Categorie
         return $this;
     }
 
-    /*public function getIdSousCat(): ?string
+    public function getIdSousCat(): ?string
     {
         return $this->idSousCat;
     }
@@ -77,7 +77,7 @@ class Categorie
         $this->idSousCat = $idSousCat;
 
         return $this;
-    }*/
+    }
 
     public function getSousCategorie(): ?SousCategorie
     {
@@ -103,7 +103,6 @@ class Categorie
     {
         if (!$this->article->contains($article)) {
             $this->article->add($article);
-            $article->setCategorie($this);
         }
 
         return $this;
@@ -111,12 +110,7 @@ class Categorie
 
     public function removeArticle(Article $article): static
     {
-        if ($this->article->removeElement($article)) {
-            // set the owning side to null (unless already changed)
-            if ($article->getCategorie() === $this) {
-                $article->setCategorie(null);
-            }
-        }
+        $this->article->removeElement($article);
 
         return $this;
     }

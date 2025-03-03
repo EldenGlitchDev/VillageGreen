@@ -52,11 +52,20 @@ class Article
     #[ORM\Column(length: 50)]
     private ?string $idCat = null;
 
+    /**
+     * @var Collection<int, Categorie>
+     */
+    #[ORM\ManyToMany(targetEntity: Categorie::class, mappedBy: 'article')]
+    private Collection $categories;
+
     #[ORM\ManyToOne(inversedBy: 'article')]
     private ?Fournisseur $fournisseur = null;
 
-    #[ORM\ManyToOne(inversedBy: 'article')]
-    private ?Categorie $categorie = null;
+    /**
+     * @var Collection<int, BonDeLivraison>
+     */
+    #[ORM\ManyToMany(targetEntity: BonDeLivraison::class, mappedBy: 'article')]
+    private Collection $bonDeLivraisons;
 
     /**
      * @var Collection<int, Commande>
@@ -70,17 +79,12 @@ class Article
     #[ORM\ManyToMany(targetEntity: Avis::class, inversedBy: 'articles')]
     private Collection $avis;
 
-    /**
-     * @var Collection<int, BonDeLivraison>
-     */
-    #[ORM\ManyToMany(targetEntity: BonDeLivraison::class, inversedBy: 'articles')]
-    private Collection $bon_de_livraison;
-
     public function __construct()
     {
+        $this->categories = new ArrayCollection();
+        $this->bonDeLivraisons = new ArrayCollection();
         $this->commande = new ArrayCollection();
         $this->avis = new ArrayCollection();
-        $this->bon_de_livraison = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -232,6 +236,33 @@ class Article
         return $this;
     }
 
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categorie $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+            $category->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categorie $category): static
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeArticle($this);
+        }
+
+        return $this;
+    }
+
     public function getFournisseur(): ?Fournisseur
     {
         return $this->fournisseur;
@@ -244,14 +275,29 @@ class Article
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
+    /**
+     * @return Collection<int, BonDeLivraison>
+     */
+    public function getBonDeLivraisons(): Collection
     {
-        return $this->categorie;
+        return $this->bonDeLivraisons;
     }
 
-    public function setCategorie(?Categorie $categorie): static
+    public function addBonDeLivraison(BonDeLivraison $bonDeLivraison): static
     {
-        $this->categorie = $categorie;
+        if (!$this->bonDeLivraisons->contains($bonDeLivraison)) {
+            $this->bonDeLivraisons->add($bonDeLivraison);
+            $bonDeLivraison->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBonDeLivraison(BonDeLivraison $bonDeLivraison): static
+    {
+        if ($this->bonDeLivraisons->removeElement($bonDeLivraison)) {
+            $bonDeLivraison->removeArticle($this);
+        }
 
         return $this;
     }
@@ -300,30 +346,6 @@ class Article
     public function removeAvi(Avis $avi): static
     {
         $this->avis->removeElement($avi);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, BonDeLivraison>
-     */
-    public function getBonDeLivraison(): Collection
-    {
-        return $this->bon_de_livraison;
-    }
-
-    public function addBonDeLivraison(BonDeLivraison $bonDeLivraison): static
-    {
-        if (!$this->bon_de_livraison->contains($bonDeLivraison)) {
-            $this->bon_de_livraison->add($bonDeLivraison);
-        }
-
-        return $this;
-    }
-
-    public function removeBonDeLivraison(BonDeLivraison $bonDeLivraison): static
-    {
-        $this->bon_de_livraison->removeElement($bonDeLivraison);
 
         return $this;
     }

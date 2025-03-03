@@ -16,9 +16,6 @@ class Appliquer
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $idComm = null;
 
-    #[ORM\ManyToOne(inversedBy: 'appliquer')]
-    private ?Commande $commande = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -32,18 +29,6 @@ class Appliquer
     public function setIdComm(?string $idComm): static
     {
         $this->idComm = $idComm;
-
-        return $this;
-    }
-
-    public function getCommande(): ?Commande
-    {
-        return $this->commande;
-    }
-
-    public function setCommande(?Commande $commande): static
-    {
-        $this->commande = $commande;
 
         return $this;
     }

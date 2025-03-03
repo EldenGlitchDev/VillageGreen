@@ -73,18 +73,18 @@ class BonDeLivraison
     #[ORM\Column(length: 50)]
     private ?string $idComm = null;
 
-    #[ORM\ManyToOne(inversedBy: 'bon_de_livraison')]
-    private ?Commande $commande = null;
-
     /**
      * @var Collection<int, Article>
      */
-    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'bon_de_livraison')]
-    private Collection $articles;
+    #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'bonDeLivraisons')]
+    private Collection $article;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Commande $commande = null;
 
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
+        $this->article = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -320,6 +320,30 @@ class BonDeLivraison
         return $this;
     }
 
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticle(): Collection
+    {
+        return $this->article;
+    }
+
+    public function addArticle(Article $article): static
+    {
+        if (!$this->article->contains($article)) {
+            $this->article->add($article);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        $this->article->removeElement($article);
+
+        return $this;
+    }
+
     public function getCommande(): ?Commande
     {
         return $this->commande;
@@ -328,33 +352,6 @@ class BonDeLivraison
     public function setCommande(?Commande $commande): static
     {
         $this->commande = $commande;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Article>
-     */
-    public function getArticles(): Collection
-    {
-        return $this->articles;
-    }
-
-    public function addArticle(Article $article): static
-    {
-        if (!$this->articles->contains($article)) {
-            $this->articles->add($article);
-            $article->addBonDeLivraison($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArticle(Article $article): static
-    {
-        if ($this->articles->removeElement($article)) {
-            $article->removeBonDeLivraison($this);
-        }
 
         return $this;
     }

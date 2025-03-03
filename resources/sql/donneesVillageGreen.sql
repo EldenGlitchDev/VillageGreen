@@ -1,48 +1,33 @@
 USE VillageGreen;
 
 INSERT INTO `Sous_categorie` (`IDSousCat`, `NomSousCat`, `ImageSousCat`) VALUES
-/*Instruments à cordes*/
 	('1', 'Guitares acoustiques', 'corde_acoustique_SousCat.jpg'),
 	('2', 'Guitares électriques', 'corde_electrique_SousCat.jpg'),
 	('3', 'Violons', 'corde_violon_SousCat.png'),
 	('4', 'Basses', 'corde_basse_SousCat.jpg'),
-
-/*Instruments à vent*/
 	('5', 'Flûtes', 'vent_flute_SousCat.png'),
 	('6', 'Clarinettes', 'vent_clarinette_SousCat.png'),
 	('7', 'Saxophones', 'vent_saxophone_SousCat.png'),
 	('8', 'Trompettes', 'vent_trompette_SousCat.png'),
-	
-/*Instruments à percussion*/
 	('9', 'Batteries', 'batterie_SousCat.png'),
 	('10', 'Tambours', 'tambour_SousCat.png'),
 	('11', 'Cymbales', 'cymbale_SousCat.png'),
 	('12', 'Bongos', 'bongo_SousCat.png'),
-
-/*Claviers et pianos*/
 	('13', 'Pianos acoustiques', 'piano_acoustique_SousCat.png'),
 	('14', 'Claviers électroniques', 'clavier_electronique_SousCat.png'),
 	('15', 'Orgues', 'orgue_SousCat.png'),
-
-/*Instruments de musique électronique*/
 	('16', 'Synthétiseurs', 'synthetiseur_SousCat.png'),
 	('17', 'Boîtes à rythmes', 'boite_a_rythme_SousCat.png'),
 	('18', 'Effets', 'effet_SousCat.png'),
-
-/*Instruments traditionnels*/
 	('19', 'Didgeridoos', 'didgeridoo_SousCat.png'),
 	('20', 'Shamisen', 'shamisen_SousCat.png'),
 	('21', 'Sitar', 'sitar_SousCat.png'),
 	('22', 'Marimba', 'marimba_SousCat.png'),
-
-/*Accessoires*/
 	('23', 'Cordes', 'accessoires_cordes_SousCat.png'),
 	('24', 'Médiators', 'accessoires_mediators_SousCat.png'),
 	('25', 'Baguettes', 'accessoires_baguettes_SousCat.png'),
 	('26', 'Accordeurs', 'accessoires_accordeur_SousCat.png'),
 	('27', 'Housses', 'accessoires_housse_SousCat.png'),
-
-/*Equipement audio et enregistrement*/
 	('28', 'Casques', 'casque_SousCat.png'),
 	('29', 'Micros', 'micro_SousCat.jpg'),
 	('30', 'Interfaces audio', 'interface_audio_SousCat.png'),
@@ -59,7 +44,6 @@ INSERT INTO `Categorie` (`IDCat`, `NomCat`, `ImageCat`, `IDSousCat`) VALUES
 	('C8', 'Equipement audio et enregistrement', 'equipements_audio_enregistrementCat.png', 28);
 
 INSERT INTO `Utilisateur` (`IDUtil`, `NomUtil`, `PrenomUtil`, `Siren`, `MailUtil`, `NumTelUtil`, `TypeUtil`, `mdpUtil`) VALUES
-/*Particuliers*/
 	(1, 'Dupont', 'Pierre', '', 'pierre.dupont@mail.com', '0612345678', 'Particulier', 'lambda123'),
 	(2, 'Martin', 'Sophie', '', 'sophie.martin@mail.com', '0623456789', 'Particulier', 'lambda123'),
 	(3, 'Bernard', 'Alain', '', 'alain.bernard@mail.com', '0634567890', 'Particulier', 'lambda123'),
@@ -75,7 +59,6 @@ INSERT INTO `Utilisateur` (`IDUtil`, `NomUtil`, `PrenomUtil`, `Siren`, `MailUtil
 	(13, 'Boucher', 'Luc', '', 'luc.boucher@mail.com', '0655566778', 'Particulier', 'lambda123'),
 	(14, 'Lefevre', 'Nicolas', '', 'nicolas.lefevre@mail.com', '0666677889', 'Particulier', 'lambda123'),
 	(15, 'Martin', 'Aurelie', '', 'aurelie.martin@mail.com', '0677888990', 'Particulier', 'lambda123'),
-/*Professionnels*/
 	(16, 'Dupuis', 'Alice', '123456789', 'alice.dupuis@pro.com', '0701234567', 'Professionnel', 'pro123'),
 	(17, 'Lemoine', 'Bernard', '987654321', 'bernard.lemoine@pro.com', '0712345678', 'Professionnel', 'pro123'),
 	(18, 'Marchand', 'Lucie', '192837465', 'lucie.marchand@pro.com', '0723456789', 'Professionnel', 'pro123'),
@@ -107,15 +90,6 @@ INSERT INTO `Avis` (`IDAvis`, `Note`, `CommAvis`, `DateAvis`, `IDInstru`, `UtilA
 (5, 4, 'Le saxophone alto est bien, mais la livraison a pris un peu plus de temps que prévu. Tout le reste était parfait.', '2025-01-30', 5, 'Girad Marc', 5),
 (7, 1, 'Très déçue par la basse électrique. La qualité du son n\'est pas au niveau de mes attentes et il y a des grésillements dès que je branche l\'amplificateur. La livraison a également pris plus de temps que prévu.', '2025-02-01', 6, 'Durand Elise', 6);
 
-
-/*INSERT INTO `Promotion` (`IDPromo`, `CodePromo`, `PourcReduc`, `DebutPromo`, `FinPromo`, `TypePromo`) VALUES
-
-(1, 'PROMO10', 10, '2025-02-01', '2025-02-28', 'Réduction de 10% sur les instruments à cordes'),
-(2, 'PROMO15', 15, '2025-02-01', '2025-03-01', 'Réduction de 15% sur les accessoires de musique'),
-(3, 'PROMO20', 20, '2025-02-01', '2025-02-15', 'Réduction de 20% sur les instruments de musique électronique'),
-(4, 'PROMO5', 5, '2025-02-01', '2025-02-28', 'Réduction de 5% sur l\'équipement audio et enregistrement'),
-(5, 'PROMO25', 25, '2025-02-01', '2025-02-20', 'Réduction de 25% sur les instruments de musique traditionnels');*/
-
 INSERT INTO `Bon_de_livraison` (`IDBon_de_livraison`, `NoFactBon`, `NomBon`, `AdresseBon`, `IDEntrBon`, `DateCommBon`, `DateExpBon`, `DateLivrBon`, `DetailProdBon`, `QuBon`, `DateFactBon`, `NoTVABon`, `DetailTransacBon`, `PrixUnitHTVABon`, `FdpBon`, `FraisConditioBon`, `TVABon`, `RemiseBon`, `TotalHTVA_TTCBon`, `IDComm`) VALUES
 (1, 1, 'Bon1', '1 rue de Paris, 75000 Paris', 1001, '2025-01-15', '2025-01-20', '2025-01-19', 'Guitare acoustique', 1, '2025-01-20', '20%', 'Transport Standard', 150.00, 25.00, 5.00, 30.00, 10.00, 215.00, 1),
 (2, 2, 'Bon2', '22 avenue des Champs, 75008 Paris', 1002, '2025-01-18', '2025-01-25', '2025-01-24', 'Piano numérique', 3, '2025-01-25', '10%', 'Livraison Express', 400.00, 100.00, 10.00, 40.00, 15.00, 595.00, 2),
@@ -140,50 +114,27 @@ INSERT INTO `Fournisseur` (`IDFourni`, `NomFourni`, `MailFourni`, `AdresseFourni
 
 
 INSERT INTO `Articles` (`IDart`, `TypeArt`, `NomArt`, `AccessoireArt`, `PrixArt`, `MarqueArt`, `DescrArt`, `QuStockArt`, `PhotoArt`, `GarantieArt`, `PromoArt`, `IDFourni`, `IDCat`) VALUES
-/*Instruments à cordes*/
-
 (1, 'Instrument à cordes', 'Guitare acoustique', 'Cordes de rechange, médiators', 150.00, 'Yamaha', 'Guitare acoustique parfaite pour les débutants et intermédiaires, sonorité chaleureuse.', 20, 'guitare_acoustique_yamaha.jpg', 2, 25, 1, 'C1'),
 (2, 'Instrument à cordes', 'Violon électrique', 'Archet, étui rigide', 250.00, 'Stagg', 'Violon électrique avec une sonorité claire et un design moderne, idéal pour les musiciens sur scène.', 15, 'violon_Stagg.png', 2, 0, 2, 'C1'),
 (3, 'Instrument à cordes', 'Basse électrique', 'Housse de transport, câbles', 400.00, 'Fender', 'Basse électrique de qualité professionnelle, idéale pour un jeu de basse puissant et précis.', 10, 'basse_fender.jpg', 2, 0, 1, 'C1'),
-
-/*Instruments à vent*/
-
 (4, 'Instrument à vent', 'Saxophone alto', 'Anches, étui', 600.00, 'Selmer', 'Saxophone alto avec une excellente projection sonore et une grande durabilité.', 8, 'saxophone_selmer.png', 2, 0, 5, 'C2'),
 (5, 'Instrument à vent', 'Flûte traversière', 'Cahier d_exercices, huile pour clé', 250.00, 'Yamaha', 'Flûte traversière professionnelle avec un son clair et une réponse rapide.', 12, 'flutte_traversiere_yamaha.png', 2, 0, 4, 'C2'),
 (6, 'Instrument à vent', 'Trompette', 'Embouchure de rechange, huile', 400.00, 'Bach', 'Trompette de haute qualité avec un son brillant, idéale pour les orchestres et les musiciens solo.', 10, 'trompette_bach.png', 2, 5, 1, 'C2'),
-
-/*Instruments à percussion*/
-
 (7, 'Instrument à percussion', 'Batterie électronique', 'Pédale, cymbales', 800.00, 'Roland', 'Batterie électronique avec des sons réalistes et une réponse rapide, idéale pour la pratique à domicile.', 6, 'batterie_electronique_roland(percussion).png', 2, 0, 2, 'C3'),
 (8, 'Instrument à percussion', 'Cajón', 'Housse de transport', 120.00, 'Meinl', 'Cajón acoustique de qualité supérieure, parfait pour les performances en solo ou en groupe.', 14, 'cajon_meinl.jpg', 2, 0, 5, 'C3'),
 (9, 'Instrument à percussion', 'Congas', 'Paires de balais, huile pour peau', 300.00, 'LP', 'Congas avec une sonorité riche et profonde, utilisées dans divers styles musicaux latins.', 7, 'congas_LP.png', 2, 0, 4, 'C3'),
-
-/*Claviers et pianos*/
-
 (10, 'Clavier et piano', 'Piano numérique', 'Pédale de sustain, banc', 450.00, 'Roland', 'Piano numérique avec 88 touches, idéal pour les pianistes débutants et intermédiaires.', 20, 'piano_numerique_roland.png', 2, 0, 4, 'C4'),
 (11, 'Clavier et piano', 'Clavier MIDI', 'Câble USB', 120.00, 'Akai', 'Clavier MIDI compact avec des touches sensibles à la vélocité, parfait pour la production musicale.', 30, 'clavier_midi_akai.png', 2, 50, 3, 'C4'),
 (12, 'Clavier et piano', 'Piano droit', 'Banquette, étouffoir', 2000.00, 'Yamaha', 'Piano droit acoustique avec une sonorité riche et une mécanique performante.', 5, 'piano_droit_yamaha.png', 2, 0, 1, 'C4'),
-
-/*Instruments de musique électronique*/
-
 (13, 'Instrument de musique électronique', 'Synthétiseur analogique', 'Alimentation, câble MIDI', 350.00, 'Korg', 'Synthétiseur analogique offrant des sonorités chaudes et riches pour les musiciens électroniques.', 15, 'synthetiseur_analogique_korg.png', 2, 0, 4, 'C5'),
 (14, 'Instrument de musique électronique', 'Batterie électronique', 'Pédale de grosse caisse, câbles', 800.00, 'Roland', 'Batterie électronique avec des pads sensibles et des sons de percussion réalistes, idéale pour les performances live.', 10, 'batterie_electronique_roland(musique_electronique).png', 2, 0, 3, 'C5'),
 (15, 'Instrument de musique électronique', 'Guitare MIDI', 'Câble USB, plectres', 400.00, 'Roland', 'Guitare MIDI permettant de jouer une large gamme de sons synthétiques, avec une interface fluide pour les musiciens.', 5, 'guitare_midi_roland.png', 2, 0, 5, 'C5'),
-
-/*Instruments traditionnels*/
-
 (16, 'Instrument traditionnel', 'Sitar', 'Housse de protection', 500.00, 'Ravi', 'Sitar de qualité artisanale avec un son authentique pour les musiciens expérimentés.', 4, 'sitar_ravi.png', 2, 0, 2, 'C6'),
 (17, 'Instrument traditionnel', 'Djembe', 'Housse, balais', 150.00, 'Meinl', 'Djembe en bois avec une peau de qualité, idéal pour les concerts et les sessions de percussion.', 12, 'djembe_meinl.png', 2, 10, 5, 'C6'),
 (18, 'Instrument traditionnel', 'Shamisen', 'Cordes de rechange', 250.00, 'Koto Shop', 'Shamisen japonais traditionnel avec une sonorité distincte et une grande capacité d_expression.', 6, 'shamisen_koto.png', 2, 0, 2, 'C6'),
-
-/*Accessoires*/
-
 (19, 'Accessoire', 'Médiators', 'Lot de 6', 5.00, 'Dunlop', 'Médiators en plastique dur, idéal pour les instruments à cordes.', 50, 'mediators_dunlop.png', 2, 0, 1, 'C7'),
 (20, 'Accessoire', 'Câble audio', 'Câble Jack 3m', 10.00, 'Hosa', 'Câble audio de qualité professionnelle, avec connecteurs plaqués or pour une transmission de signal optimale.', 100, 'cables_audio_hosa.png', 2, 0, 1, 'C7'),
 (21, 'Accessoire', 'Housse de transport', 'Pour guitare', 30.00, 'Ibanez', 'Housse de transport robuste et légère, offrant une protection optimale pour vos instruments.', 40, 'housse_guitare_ibanez.png', 2, 10, 5, 'C7'),
-
-/*Equipement audio et enregistrement*/
-
 (22, 'Équipement audio et enregistrement', 'Interface audio USB', 'Câble USB, logiciel d_enregistrement', 120.00, 'Focusrite', 'Interface audio USB 2 canaux, idéale pour l_enregistrement de musique à domicile.', 30, 'interface_audio_usb_focusrite.png', 2, 0, 4, 'C8'),
 (23, 'Équipement audio et enregistrement', 'Enregistreur portable', 'Carte mémoire, trépied', 200.00, 'Zoom', 'Enregistreur portable avec une qualité d_enregistrement haute résolution, parfait pour les podcasts et les prises de son sur le terrain.', 20, 'enregistreur_portable_zoom.png', 2, 0, 4, 'C8'),
 (24, 'Équipement audio et enregistrement', 'Moniteurs de studio', 'Câbles d_alimentation, supports', 350.00, 'Yamaha', 'Moniteurs de studio avec un son clair et précis, parfaits pour le mixage et l_enregistrement.', 15, 'moniteurs_de_studio_yamaha.jpg', 2, 0, 2, 'C8');

@@ -38,6 +38,9 @@ class Fournisseur
         $this->article = new ArrayCollection();
     }
 
+    
+   
+
     public function getId(): ?int
     {
         return $this->id;

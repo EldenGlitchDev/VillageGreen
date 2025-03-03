@@ -34,17 +34,14 @@ class Avis
     #[ORM\Column(length: 50)]
     private ?string $idUtil = null;
 
-    #[ORM\ManyToOne(inversedBy: 'avis')]
-    private ?Utilisateur $utilisateur = null;
-
-    #[ORM\ManyToOne(inversedBy: 'avisUtil')]
-    private ?Utilisateur $user = null;
-
     /**
      * @var Collection<int, Article>
      */
     #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'avis')]
     private Collection $articles;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Utilisateur $utilisateur = null;
 
     public function __construct()
     {
@@ -128,30 +125,6 @@ class Avis
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
-    {
-        return $this->utilisateur;
-    }
-
-    public function setUtilisateur(?Utilisateur $utilisateur): static
-    {
-        $this->utilisateur = $utilisateur;
-
-        return $this;
-    }
-
-    public function getUser(): ?Utilisateur
-    {
-        return $this->user;
-    }
-
-    public function setUser(?Utilisateur $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Article>
      */
@@ -175,6 +148,18 @@ class Avis
         if ($this->articles->removeElement($article)) {
             $article->removeAvi($this);
         }
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

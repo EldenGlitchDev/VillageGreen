@@ -90,4 +90,5 @@ class SousCategorie
 
         return $this;
     }
+
 }
