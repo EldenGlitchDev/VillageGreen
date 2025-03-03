@@ -21,7 +21,7 @@ class Categorie
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageCat = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 50, nullable:true)]
     private ?string $idSousCat = null;
 
     #[ORM\ManyToOne(inversedBy: 'categorie')]
