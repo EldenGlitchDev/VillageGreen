@@ -79,6 +79,9 @@ class Article
     #[ORM\ManyToMany(targetEntity: Avis::class, inversedBy: 'articles')]
     private Collection $avis;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $salesCount = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -346,6 +349,18 @@ class Article
     public function removeAvi(Avis $avi): static
     {
         $this->avis->removeElement($avi);
+
+        return $this;
+    }
+
+    public function getSalesCount(): ?int
+    {
+        return $this->salesCount;
+    }
+
+    public function setSalesCount(?int $salesCount): static
+    {
+        $this->salesCount = $salesCount;
 
         return $this;
     }

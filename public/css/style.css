@@ -79,3 +79,7 @@ hr {
 ul.list-unstyled li {
     margin-right: 55px;
 }
+
+.indexRounded {
+    border-radius: 100px;
+}

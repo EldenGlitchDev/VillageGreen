@@ -1,73 +1,90 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil
+{% endblock %}
 
 {% block body %}
 
-    <div class="container-fluid barreListeCat">
-        <div class = "row">
+	<div class="container-fluid barreListeCat">
+		<div class="row">
 
-            <ul class="list-unstyled d-flex justify-content-center mt-4">
-                <li>
-                    <p>Instruments à cordes</p>
-                </li>
-                <li>
-                    <p>Instruments à vent</p>
-                </li>
-                <li>
-                    <p>Instruments à percussion</p>
-                </li>
-                <li>
-                    <p>Claviers et pianos</p>
-                </li>
-                <li>
-                    <p>Instruments de musique électronique</p>
-                </li>
-                <li>
-                    <p>Instruments traditionnels</p>
-                </li>
-                <li>
-                    <p>Accessoires</p>
-                </li>
-                <li>
-                    <p>Equipements audio et enregistrement</p>
-                </li>
-            </ul>
+			<ul class="list-unstyled d-flex justify-content-center mt-4">
+				<li>
+					<p>Instruments à cordes</p>
+				</li>
+				<li>
+					<p>Instruments à vent</p>
+				</li>
+				<li>
+					<p>Instruments à percussion</p>
+				</li>
+				<li>
+					<p>Claviers et pianos</p>
+				</li>
+				<li>
+					<p>Instruments de musique électronique</p>
+				</li>
+				<li>
+					<p>Instruments traditionnels</p>
+				</li>
+				<li>
+					<p>Accessoires</p>
+				</li>
+				<li>
+					<p>Equipements audio et enregistrement</p>
+				</li>
+			</ul>
 
-        </div>
-    </div>
-
-    <div class="container-fluid">
-
-    <h1>Nos catégories</h1>
-
-        {% for categorie in categories %}
-
-            <img src="{{ asset ('img/categories/' ~ categorie.ImageCat) }}" alt="{{ categorie.NomCat }}">
-            <p>{{ categorie.NomCat }}</p>
-
-        {% endfor %}
-
-    </div>
-
-    <div class="container">
-        <h1>Nos produits vedettes</h1>
-
-        {% for article in articles %}
-
-            <img src="{{ asset ('img/articles/' ~ article.PhotoArt) }}" alt="{{ article.NomArt }}">
-            <p>{{ article.salesCount }}</p>
-
-        {% endfor %}
-
-    </div>
-
-    <div class="container">
-        <h1>Nos marques vedettes</h1>
-    </div>
+		</div>
+	</div>
 
 
+	<div class="container-fluid">
+		<div class="row">
 
+			<h1>Nos catégories</h1>
+
+			{% for categorie in categories %}
+
+				<div class="col-md-3 mb-4 d-flex justify-content-center">
+					<img src="{{ asset ('img/categories/' ~ categorie.ImageCat) }}" alt="{{ categorie.NomCat }}" width="90px" height="100px" class="rounded">
+					<p>{{ categorie.NomCat }}</p>
+				</div>
+
+			{% endfor %}
+
+		</div>
+	</div>
+
+
+	<h1>Nos produits vedettes</h1>
+	<div class="container bg-light indexRounded">
+		<div class="row">
+
+
+			{% for article in articles %}
+
+
+				<div class="col-md-2 mb-4 d-flex justify-content-center">
+					<img src="{{ asset ('img/articles/' ~ article.PhotoArt) }}" alt="{{ article.NomArt }}" width="90px" height="100px">
+					<p>{{ article.salesCount }}</p>
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
+
+
+	<h1>Nos marques vedettes</h1>
+	<div class="container bg-light indexRounded">
+		<div class="row">
+			<div class="col-md-12 mb-4 d-flex justify-content-around">
+				<img src="{{ asset ('img/marques/fenderLogo.png') }}" alt="FenderLogo" width="200px" height="130px">
+				<img src="{{ asset ('img/marques/casio.png') }}" alt="CasioLogo" width="200px" height="130px">
+				<img src="{{ asset ('img/marques/gibson.png') }}" alt="GibsonLogo" width="200px" height="130px">
+			</div>
+		</div>
+	</div>
 
 
 {% endblock %}
