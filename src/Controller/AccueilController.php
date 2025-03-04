@@ -6,44 +6,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\CategorieRepository;
+use App\Repository\ArticleRepository;
 
 final class AccueilController extends AbstractController
 {
 
-    /*private $categorieRepository;
+    private $categorieRepository;
+    private $articleRepository;
 
-    public function __construct(CategorieRepository $categorieRepository)
+    public function __construct(CategorieRepository $categorieRepository, ArticleRepository $articleRepository)
     {
         $this->categorieRepository=$categorieRepository;
-    }*/
+        $this->articleRepository=$articleRepository;
+    }
 
 
-    #[Route('/', name: 'app_accueil')]
+    #[Route('/', name: 'app_index')]
     public function index(): Response
     {
+        $categories = $this->categorieRepository->findAll();
+        $articles = $this->articleRepository->findBy([], ['salesCount' => 'DESC'], 10);
+
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
+            'categories' => $categories,
+            'articles' => $articles,
         ]);
     }
-    
-    /*#[Route('/categorie', name: 'app_categorie')]
-    public function categorie(CategorieRepository $categorieRepository): Response
-    {
-        $categorie = $categorieRepository->findAll();
-        return $this->render('accueil/index.html.twig', [
-            'categorie' => $categorie,
-        ]);
-    }*/
-
-    /*#[Route('/categorie', name: 'app_categorie')]
-    public function categorie()
-{
-    $categories = $this->getDoctrine()->getRepository(CategorieRepository::class)->findAll();
-
-    return $this->render('votre_template.html.twig', [
-        'categories' => $categories
-    ]);
-}*/
-
-    
 }

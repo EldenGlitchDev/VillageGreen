@@ -39,13 +39,32 @@
 
     <div class="container-fluid">
 
+    <h1>Nos catégories</h1>
+
         {% for categorie in categories %}
 
-            <p>{{ categorie.libelle }}</p>
+            <img src="{{ asset ('img/categories/' ~ categorie.ImageCat) }}" alt="{{ categorie.NomCat }}">
+            <p>{{ categorie.NomCat }}</p>
 
         {% endfor %}
 
-    </div> 
+    </div>
+
+    <div class="container">
+        <h1>Nos produits vedettes</h1>
+
+        {% for article in articles %}
+
+            <img src="{{ asset ('img/articles/' ~ article.PhotoArt) }}" alt="{{ article.NomArt }}">
+            <p>{{ article.salesCount }}</p>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="container">
+        <h1>Nos marques vedettes</h1>
+    </div>
 
 
 

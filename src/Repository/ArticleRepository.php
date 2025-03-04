@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\DBAL\Result\ResultStatement;
 
 /**
  * @extends ServiceEntityRepository<Article>
@@ -16,28 +17,25 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
-    //    /**
-    //     * @return Article[] Returns an array of Article objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('a.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    /*public function topArticlesVendus()
+    {
+        $conn=$this->getEntityManager()->getConnection();
+        $sql='
+            SELECT a.IDart AS Reference_article, a.NomArt AS Nom_Article, a.QuStockArt AS Quantite_Stock_Articles, SUM(bdl.QuBon) AS Somme_quantite_bon, f.NomFourni AS Fournisseur
+            FROM Articles a
+            JOIN Bon_de_livraison bdl ON a.IDart = bdl.IDComm
+            JOIN Commande c ON bdl.IDComm = c.IDComm
+            JOIN Fournisseur f ON a.IDFourni = f.IDfourni 
+            WHERE YEAR(c.DateComm) = 2025
+            GROUP BY a.NomArt, f.NomFourni
+            ORDER BY Somme_quantite_bon DESC'
+            LIMIT 10';
+            
+        $stmt=$conn->executeQuery($sql);
+        return $stmt->fetchAllAssociative();
 
-    //    public function findOneBySomeField($value): ?Article
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        /*$stmt=$conn->executeQuery($sql);
+        $result=$stmt->fetchAllAssociative();
+        return $result;
+    }*/
 }
