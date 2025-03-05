@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Sous catégories {% endblock %}
+
+{% block body %}
+
+	<div class='container-fluid'>
+        <div class='row'>
+
+            {% for souscategorie in souscategories %}
+
+                <p>{{ souscategorie.NomSousCat }}</p>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

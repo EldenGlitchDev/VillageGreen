@@ -1,0 +1,25 @@
+@startuml VillageGreen
+User -> System: S'inscrit sur le site
+System --> User: Confirme l'inscription
+
+User -> System: Se connecte et explore
+User <-- System: Affiche la page des catégories et sous-catégories
+
+User -> System: Recherche des instruments
+User <-- System: Affiche la page de détails des articles
+
+User -> System: Regarde les détails des produits
+User <-- System: Afficache des informations des produits (prix, description, etc...)
+
+User -> System: Ajoute au panier
+User <-- System: Affichage du panier
+
+User -> System: Passe la commande
+User <-- System: Affichage de la page commande
+
+User -> System: Paiement réussi
+User <-- System: Affiche la page des catégories et sous-catégories
+
+User -> System: Evalue les produits
+User <-- System: Affiche la page de notation des produits
+@enduml

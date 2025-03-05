@@ -37,11 +37,11 @@ final class AccueilController extends AbstractController
     #[Route('/categories/{idSousCat}', name: 'app_sous_categorie')]
     public function categorie(int $idSousCat): Response
     {
-        $categories = $this->categorieRepository->find($idSousCat);
+        $souscategories = $this->categorieRepository->find($idSousCat);
 
         return $this->render('accueil/sousCat.html.twig', [
             'controller_name' => 'AccueilController',
-            'categories' => $categories,
+            'souscategories' => $souscategories,
             ]);
     }
 }

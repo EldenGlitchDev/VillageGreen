@@ -1,3 +1,5 @@
+USE VillageGreen;
+
 CREATE VIEW Jointure_Articles_Fournisseurs
 AS
 SELECT a.IDart

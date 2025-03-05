@@ -1,3 +1,5 @@
+USE VillageGreen;
+
 DELIMITER |
 
 CREATE PROCEDURE Commandes_non_soldees
