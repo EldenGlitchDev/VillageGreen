@@ -34,20 +34,6 @@ class Avis
     #[ORM\Column(length: 50)]
     private ?string $idUtil = null;
 
-    /**
-     * @var Collection<int, Article>
-     */
-    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'avis')]
-    private Collection $articles;
-
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Utilisateur $utilisateur = null;
-
-    public function __construct()
-    {
-        $this->articles = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -121,45 +107,6 @@ class Avis
     public function setIdUtil(string $idUtil): static
     {
         $this->idUtil = $idUtil;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Article>
-     */
-    public function getArticles(): Collection
-    {
-        return $this->articles;
-    }
-
-    public function addArticle(Article $article): static
-    {
-        if (!$this->articles->contains($article)) {
-            $this->articles->add($article);
-            $article->addAvi($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArticle(Article $article): static
-    {
-        if ($this->articles->removeElement($article)) {
-            $article->removeAvi($this);
-        }
-
-        return $this;
-    }
-
-    public function getUtilisateur(): ?Utilisateur
-    {
-        return $this->utilisateur;
-    }
-
-    public function setUtilisateur(?Utilisateur $utilisateur): static
-    {
-        $this->utilisateur = $utilisateur;
 
         return $this;
     }

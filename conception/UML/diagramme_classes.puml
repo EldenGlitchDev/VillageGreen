@@ -1,92 +1,54 @@
-@startuml VillageGreen
+@startuml
         
-class Utilisateur {
-        IDUtil : VARCHAR(50)
+class Categorie {
+        IDCat : VARCHAR(50) [PK]
+        NomCat : VARCHAR(50)
+        ImageCat : VARCHAR(250)
+    }
+
+class Sous_categorie {
+        IDSousCat : VARCHAR(50) [PK]
+        NomSousCat : VARCHAR(50)
+        ImageSousCat : VARCHAR(250)
+        IDCat : VARCHAR(50) [FK]
+    }
+
+Class Utilisateur {
+        IDUtil : VARCHAR(50) [PK]
         NomUtil : VARCHAR(50)
         PrenomUtil : VARCHAR(50)
         Siren : VARCHAR(14)
         MailUtil : VARCHAR(50)
         NumTelUtil : VARCHAR(50)
         TypeUtil : VARCHAR(50)
-        mdpUtil : VARCHAR(50)
-    }
-
-class Commande {
-        IDComm : VARCHAR(50)
-        DateComm : DATE
-        DateLivrComm : DATE
-        PrixTotComm : DECIMAL(7,2)
-        LibelleComm : VARCHAR(50)
-        StatutComm : VARCHAR(10)
-        UtilComm : VARCHAR(50)
-        SousTotalComm : DECIMAL(7,2)
-        Fdp : DECIMAL(7,2)
-        MontantPaiem : DECIMAL(7,2)
-        DatePaiem : DATE
-        StatutPaiem : VARCHAR(10)
-        MethodePaiem : VARCHAR(20)
-        AdrFactUtil : TEXT
-        AdrLivrUtil : TEXT
-        FraisExpComm : DECIMAL(7,2)
-        PaysComm : VARCHAR(50)
-    }
-
-Class Avis {
-        IDAvis : VARCHAR(50)
-        Note : INT
-        CommAvis : TEXT
-        DateAvis : DATE
-    }
-
-Class Promotion {
-        IDPromo : VARCHAR(50)
-        CodePromo : VARCHAR(7)
-        PourcReduc : DECIMAL(7,2)
-        DebutPromo : DATE
-        FinPromo : DATE
-        TypePromo : VARCHAR(70)
-    }
-
-Class Bon_de_livraison {
-        NoFactBon : VARCHAR(50)
-        NomBon : VARCHAR(50)
-        AdresseBon : VARCHAR(50)
-        DateCommBon : DATE
-        DateExpBon : DATE
-        DateLivrBon : DATE
-        DetailProdBon : VARCHAR(50)
-        QuBon : INT
-        PrixUnitHTVABon : DECIMAL(7,2)
-        FdpBon : DECIMAL(7,2)
-        FraisConditioBon : DECIMAL(7,2)
-        TVABon : DECIMAL(7,2)
-        RemiseBon : DECIMAL(7,2)
-        TotalHTVA_TTCBon : DECIMAL(7,2)
-    }
-
-Class Sous_categorie {
-
-    Attributs :
-        IDSousCat : VARCHAR(50)
-        NomSousCat : VARCHAR(50)
+        MdpUtil : VARCHAR(50)
+        PromoUtil : INT
+        AdrVoiePostUtil : TEXT
+        AdrCodePostUtil : INT
+        AdrVilleUtil : VARCHAR(50)
+        AdrPaysUtil : VARCHAR(50)
     }
 
 Class Fournisseur {
-        IDfourni : VARCHAR(50)
-        NomFourni : VARCHAR(50)
+        IDfourni : VARCHAR(50) [PK]
+        Nom_fourni : VARCHAR(50)
         MailFourni : VARCHAR(50)
-        AdresseFourni : VARCHAR(50)
+        Adresse_fourni : VARCHAR(50)
         TelFourni : VARCHAR(50)
     }
 
-
-Class Categorie {
-        IDCat : VARCHAR(50)
-        NomCat : VARCHAR(50)
+Class Statut_commande {
+        Id_StatutCommande : VARCHAR(50) [PK]
+        StatutComm : VARCHAR(10)
     }
 
-Class Articles {
-        IDart : VARCHAR(50)
+Class Statut_paiement {
+        Id_StatutPaiement : VARCHAR(50) [PK]
+        StatutPaiem : VARCHAR(10)
+    }
+
+Class Article {
+        IDart : VARCHAR(50) [PK]
         TypeArt : VARCHAR(50)
         NomArt : VARCHAR(50)
         AccessoireArt : VARCHAR(50)
@@ -94,16 +56,85 @@ Class Articles {
         MarqueArt : VARCHAR(50)
         DescrArt : TEXT
         QuStockArt : INT
-        PhotoArt : VARCHAR(150)
+        PhotoArt : VARCHAR(250)
         GarantieArt : VARCHAR(50)
         PromoArt : INT
+        PrixUnitArt : DECIMAL(7,2)
+        PrixUnitHTVABon : DECIMAL(7,2)
+        IDSousCat : VARCHAR(50) [FK]
     }
 
-Utilisateur "1" -- "*" Commande :  Soumet
-Utilisateur "1" -- "*" Avis : Poste
-Commande "1" -- "1" Bon_de_livraison : Effectue
-Sous_categorie "1" -- "*" Catégorie : Contient
-Fournisseur "1" -- "*" Articles : Vend
-Catégorie "1" -- "*" Articles : Possède
+Class Commande {
+        IDComm : VARCHAR(50) [PK]
+        DateComm : DATE
+        LibelleComm : VARCHAR(50)
+        UtilComm : VARCHAR(50) [FK]
+        Fdp : DECIMAL(7,2)
+        MontantPaiem : DECIMAL(7,2)
+        DatePaiem : DATE
+        MethodePaiem : VARCHAR(20)
+        CommandePaiem : VARCHAR(50)
+        AdrFactUtil : TEXT
+        AdrLivrUtil : TEXT
+        FraisExpComm : DECIMAL(7,2)
+        PaysComm : VARCHAR(50)
+        AdrVoiePostComm : TEXT
+        AdrCodePostComm : INT
+        AdrVilleComm : VARCHAR(50)
+        AdrPaysComm : VARCHAR(50)
+        Id_StatutCommande : VARCHAR(50) [FK]
+        IDUtil : VARCHAR(50) [FK]
+    }
+
+Class Bon_de_livraison {
+        IDBon_de_livraison : VARCHAR(50) [PK]
+        NoFactBon : VARCHAR(50)
+        NomBon : VARCHAR(50)
+        AdresseBon : VARCHAR(50)
+        IDEntrBon : VARCHAR(50)
+        DateCommBon : DATE
+        DateExpBon : DATE
+        DateLivrBon : DATE
+        DetailProdBon : VARCHAR(50)
+        QuBon : INT
+        DateFactBon : DATE
+        NoTVABon : VARCHAR(20)
+        DetailTransacBon : TEXT
+        FdpBon : DECIMAL(7,2)
+        FraisConditioBon : DECIMAL(7,2)
+        RemiseBon : DECIMAL(7,2)
+        AdrVoiePostBon : TEXT
+        AdrCodePostBon : INT
+        AdrVilleBon : VARCHAR(50)
+        AdrPaysComm : VARCHAR(50)
+        IDComm : VARCHAR(50) [FK]
+    }
+
+
+Class VEND {
+        IDart : VARCHAR(50) [FK]
+        IDfourni : VARCHAR(50) [FK]
+    }
+
+Class CONTENIR {
+        IDart : VARCHAR(50) [FK]
+        IDComm : VARCHAR(50) [FK]
+        PrixArt : INT
+        QuStockArt : INT
+    }
+    
+Class PRESENTE {
+        IDComm : VARCHAR(50) [FK]
+        Id_StatutPaiement : VARCHAR(50) [FK]
+    }
+
+Categorie "1" -- "*" Sous_categorie :  CONTIENT
+Sous_categorie "0" -- "*" Article : POSSEDE
+Utilisateur "1" -- "*" Commande : PASSER
+Commande "1" -- "1" Statut_commande : COMPRENDS
+Commande "0" -- "1" Bon_de_livraison : EMETTRE
+Commande "1" -- "1" Statut_paiement : PRESENTE
+Fournisseur "0" -- "*" Article : VEND
+Commande "1" -- "*" Article : CONTENIR
 
 @enduml

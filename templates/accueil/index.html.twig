@@ -47,7 +47,7 @@
 			{% for categorie in categories %}
 
 				<div class="col-md-3 mb-4 d-flex justify-content-center">
-					<a href="{{ path ('app_sous_categorie', {idSousCat: categorie.id}) }}">
+					<a href="{{ path ('app_sous_categorie', {id: categorie.id}) }}">
 					<img src="{{ asset ('img/categories/' ~ categorie.ImageCat) }}" alt="{{ categorie.NomCat }}" width="90px" height="100px" class="rounded">
 					<p>{{ categorie.NomCat }}</p>
 					</a>

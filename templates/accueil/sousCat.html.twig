@@ -10,6 +10,7 @@
             {% for souscategorie in souscategories %}
 
                 <p>{{ souscategorie.NomSousCat }}</p>
+                <img src="{{ asset ('img/sous_categories/' ~ souscategorie.ImageSousCat) }}" alt="{{ souscategorie.ImageSousCat }}" width="90px" height="100px" class="rounded">
 
             {% endfor %}
 

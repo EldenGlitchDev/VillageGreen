@@ -1,0 +1,109 @@
+@startuml VillageGreen
+        
+class Utilisateur {
+        IDUtil : VARCHAR(50)
+        NomUtil : VARCHAR(50)
+        PrenomUtil : VARCHAR(50)
+        Siren : VARCHAR(14)
+        MailUtil : VARCHAR(50)
+        NumTelUtil : VARCHAR(50)
+        TypeUtil : VARCHAR(50)
+        mdpUtil : VARCHAR(50)
+    }
+
+class Commande {
+        IDComm : VARCHAR(50)
+        DateComm : DATE
+        DateLivrComm : DATE
+        PrixTotComm : DECIMAL(7,2)
+        LibelleComm : VARCHAR(50)
+        StatutComm : VARCHAR(10)
+        UtilComm : VARCHAR(50)
+        SousTotalComm : DECIMAL(7,2)
+        Fdp : DECIMAL(7,2)
+        MontantPaiem : DECIMAL(7,2)
+        DatePaiem : DATE
+        StatutPaiem : VARCHAR(10)
+        MethodePaiem : VARCHAR(20)
+        AdrFactUtil : TEXT
+        AdrLivrUtil : TEXT
+        FraisExpComm : DECIMAL(7,2)
+        PaysComm : VARCHAR(50)
+    }
+
+Class Avis {
+        IDAvis : VARCHAR(50)
+        Note : INT
+        CommAvis : TEXT
+        DateAvis : DATE
+    }
+
+Class Promotion {
+        IDPromo : VARCHAR(50)
+        CodePromo : VARCHAR(7)
+        PourcReduc : DECIMAL(7,2)
+        DebutPromo : DATE
+        FinPromo : DATE
+        TypePromo : VARCHAR(70)
+    }
+
+Class Bon_de_livraison {
+        NoFactBon : VARCHAR(50)
+        NomBon : VARCHAR(50)
+        AdresseBon : VARCHAR(50)
+        DateCommBon : DATE
+        DateExpBon : DATE
+        DateLivrBon : DATE
+        DetailProdBon : VARCHAR(50)
+        QuBon : INT
+        PrixUnitHTVABon : DECIMAL(7,2)
+        FdpBon : DECIMAL(7,2)
+        FraisConditioBon : DECIMAL(7,2)
+        TVABon : DECIMAL(7,2)
+        RemiseBon : DECIMAL(7,2)
+        TotalHTVA_TTCBon : DECIMAL(7,2)
+    }
+
+Class Sous_categorie {
+
+    Attributs :
+        IDSousCat : VARCHAR(50)
+        NomSousCat : VARCHAR(50)
+    }
+
+Class Fournisseur {
+        IDfourni : VARCHAR(50)
+        NomFourni : VARCHAR(50)
+        MailFourni : VARCHAR(50)
+        AdresseFourni : VARCHAR(50)
+        TelFourni : VARCHAR(50)
+    }
+
+
+Class Categorie {
+        IDCat : VARCHAR(50)
+        NomCat : VARCHAR(50)
+    }
+
+Class Articles {
+        IDart : VARCHAR(50)
+        TypeArt : VARCHAR(50)
+        NomArt : VARCHAR(50)
+        AccessoireArt : VARCHAR(50)
+        PrixArt : INT
+        MarqueArt : VARCHAR(50)
+        DescrArt : TEXT
+        QuStockArt : INT
+        PhotoArt : VARCHAR(150)
+        GarantieArt : VARCHAR(50)
+        PromoArt : INT
+    }
+
+Utilisateur "1" -- "*" Commande :  Soumet
+Utilisateur "1" -- "*" Avis : Poste
+Commande "1" -- "1" Bon_de_livraison : Effectue
+Sous_categorie "1" -- "*" Catégorie : Contient
+Fournisseur "1" -- "*" Articles : Vend
+Catégorie "1" -- "*" Articles : Possède
+
+@enduml

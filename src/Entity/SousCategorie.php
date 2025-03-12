@@ -69,26 +69,4 @@ class SousCategorie
         return $this->categorie;
     }
 
-    public function addCategorie(Categorie $categorie): static
-    {
-        if (!$this->categorie->contains($categorie)) {
-            $this->categorie->add($categorie);
-            $categorie->setSousCategorie($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategorie(Categorie $categorie): static
-    {
-        if ($this->categorie->removeElement($categorie)) {
-            // set the owning side to null (unless already changed)
-            if ($categorie->getSousCategorie() === $this) {
-                $categorie->setSousCategorie(null);
-            }
-        }
-
-        return $this;
-    }
-
 }

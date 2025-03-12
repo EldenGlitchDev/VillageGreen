@@ -24,9 +24,6 @@ class Categorie
     #[ORM\Column(length: 50, nullable:true)]
     private ?string $idSousCat = null;
 
-    #[ORM\ManyToOne(inversedBy: 'categorie')]
-    private ?SousCategorie $sousCategorie = null;
-
     /**
      * @var Collection<int, Article>
      */
@@ -75,18 +72,6 @@ class Categorie
     public function setIdSousCat(string $idSousCat): static
     {
         $this->idSousCat = $idSousCat;
-
-        return $this;
-    }
-
-    public function getSousCategorie(): ?SousCategorie
-    {
-        return $this->sousCategorie;
-    }
-
-    public function setSousCategorie(?SousCategorie $sousCategorie): static
-    {
-        $this->sousCategorie = $sousCategorie;
 
         return $this;
     }

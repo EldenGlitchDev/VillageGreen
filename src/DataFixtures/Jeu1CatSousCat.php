@@ -94,20 +94,20 @@ class Jeu1CatSousCat extends Fixture
 
             $manager->flush();
 
-        foreach ($donneesCategories as [$nomCat, $imageCat, $indexSousCat]) {
+        foreach ($donneesCategories as [$nomCat, $imageCat, $idSousCat]) {
         
             $categories = new Categorie();
             
             $categories->setNomCat($nomCat)
                        ->setImageCat($imageCat);
-                       //->setIdSousCat($idSousCat);
+                       //->setId($idSousCat);
 
-            $sousCategories = $manager->getRepository(SousCategorie::class)->find($indexSousCat +1 );
+            /*$sousCategories = $manager->getRepository(SousCategorie::class)->find($indexSousCat +1 );
             if ($sousCategories) {
             $categories->setSousCategorie($sousCategories);
             } else {
                 throw new \Exception("Sous catégorie avec ID $indexSousCat non trouvée");
-            }
+            }*/
 
             $manager -> persist($categories);
         }
