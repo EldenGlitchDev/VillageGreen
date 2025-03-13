@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -42,17 +43,37 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 14, nullable: true)]
     private ?string $siren = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $mailUtil = null;
-
     #[ORM\Column(length: 50)]
     private ?string $numTelUtil = null;
 
     #[ORM\Column(length: 50)]
     private ?string $typeUtil = null;
 
-    #[ORM\Column(length: 50, nullable:true)]
-    private ?string $mdpUtil = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $promoUtil = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $adrVoiePostUtil = null;
+
+    #[ORM\Column(length: 5)]
+    private ?string $adrCodePostUtil = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $adrVilleUtil = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $adrPaysUtil = null;
+
+    /**
+     * @var Collection<int, Commande>
+     */
+    #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'utilisateur')]
+    private Collection $commandes;
+
+    public function __construct()
+    {
+        $this->commandes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -165,18 +186,6 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getMailUtil(): ?string
-    {
-        return $this->mailUtil;
-    }
-
-    public function setMailUtil(string $mailUtil): static
-    {
-        $this->mailUtil = $mailUtil;
-
-        return $this;
-    }
-
     public function getNumTelUtil(): ?string
     {
         return $this->numTelUtil;
@@ -201,14 +210,92 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getMdpUtil(): ?string
+    public function getPromoUtil(): ?int
     {
-        return $this->mdpUtil;
+        return $this->promoUtil;
     }
 
-    public function setMdpUtil(string $mdpUtil): static
+    public function setPromoUtil(?int $promoUtil): static
     {
-        $this->mdpUtil = $mdpUtil;
+        $this->promoUtil = $promoUtil;
+
+        return $this;
+    }
+
+    public function getAdrVoiePostUtil(): ?string
+    {
+        return $this->adrVoiePostUtil;
+    }
+
+    public function setAdrVoiePostUtil(string $adrVoiePostUtil): static
+    {
+        $this->adrVoiePostUtil = $adrVoiePostUtil;
+
+        return $this;
+    }
+
+    public function getAdrCodePostUtil(): ?string
+    {
+        return $this->adrCodePostUtil;
+    }
+
+    public function setAdrCodePostUtil(string $adrCodePostUtil): static
+    {
+        $this->adrCodePostUtil = $adrCodePostUtil;
+
+        return $this;
+    }
+
+    public function getAdrVilleUtil(): ?string
+    {
+        return $this->adrVilleUtil;
+    }
+
+    public function setAdrVilleUtil(string $adrVilleUtil): static
+    {
+        $this->adrVilleUtil = $adrVilleUtil;
+
+        return $this;
+    }
+
+    public function getAdrPaysUtil(): ?string
+    {
+        return $this->adrPaysUtil;
+    }
+
+    public function setAdrPaysUtil(string $adrPaysUtil): static
+    {
+        $this->adrPaysUtil = $adrPaysUtil;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): static
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes->add($commande);
+            $commande->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): static
+    {
+        if ($this->commandes->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getUtilisateur() === $this) {
+                $commande->setUtilisateur(null);
+            }
+        }
 
         return $this;
     }

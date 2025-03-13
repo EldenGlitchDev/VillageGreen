@@ -16,20 +16,23 @@ class SousCategorie
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $NomSousCat = null;
+    private ?string $nomSousCat = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $ImageSousCat = null;
+    private ?string $imageSousCat = null;
+
+    #[ORM\ManyToOne(inversedBy: 'souscategorie')]
+    private ?Categorie $categorie = null;
 
     /**
-     * @var Collection<int, Categorie>
+     * @var Collection<int, Article>
      */
-    #[ORM\OneToMany(targetEntity: Categorie::class, mappedBy: 'sousCategorie')]
-    private Collection $categorie;
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'sousCategorie')]
+    private Collection $articles;
 
     public function __construct()
     {
-        $this->categorie = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -39,34 +42,67 @@ class SousCategorie
 
     public function getNomSousCat(): ?string
     {
-        return $this->NomSousCat;
+        return $this->nomSousCat;
     }
 
-    public function setNomSousCat(string $NomSousCat): static
+    public function setNomSousCat(string $nomSousCat): static
     {
-        $this->NomSousCat = $NomSousCat;
+        $this->nomSousCat = $nomSousCat;
 
         return $this;
     }
 
     public function getImageSousCat(): ?string
     {
-        return $this->ImageSousCat;
+        return $this->imageSousCat;
     }
 
-    public function setImageSousCat(?string $ImageSousCat): static
+    public function setImageSousCat(?string $imageSousCat): static
     {
-        $this->ImageSousCat = $ImageSousCat;
+        $this->imageSousCat = $imageSousCat;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): static
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
 
     /**
-     * @return Collection<int, Categorie>
+     * @return Collection<int, Article>
      */
-    public function getCategorie(): Collection
+    public function getArticles(): Collection
     {
-        return $this->categorie;
+        return $this->articles;
     }
 
+    public function addArticle(Article $article): static
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->setSousCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getSousCategorie() === $this) {
+                $article->setSousCategorie(null);
+            }
+        }
+
+        return $this;
+    }
 }

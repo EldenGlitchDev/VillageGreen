@@ -2,39 +2,39 @@
 
 namespace App\Repository;
 
-use App\Entity\Donne;
+use App\Entity\StatutCommande;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Donne>
+ * @extends ServiceEntityRepository<StatutCommande>
  */
-class DonneRepository extends ServiceEntityRepository
+class StatutCommandeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Donne::class);
+        parent::__construct($registry, StatutCommande::class);
     }
 
     //    /**
-    //     * @return Donne[] Returns an array of Donne objects
+    //     * @return StatutCommande[] Returns an array of StatutCommande objects
     //     */
     //    public function findByExampleField($value): array
     //    {
-    //        return $this->createQueryBuilder('d')
-    //            ->andWhere('d.exampleField = :val')
+    //        return $this->createQueryBuilder('s')
+    //            ->andWhere('s.exampleField = :val')
     //            ->setParameter('val', $value)
-    //            ->orderBy('d.id', 'ASC')
+    //            ->orderBy('s.id', 'ASC')
     //            ->setMaxResults(10)
     //            ->getQuery()
     //            ->getResult()
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Donne
+    //    public function findOneBySomeField($value): ?StatutCommande
     //    {
-    //        return $this->createQueryBuilder('d')
-    //            ->andWhere('d.exampleField = :val')
+    //        return $this->createQueryBuilder('s')
+    //            ->andWhere('s.exampleField = :val')
     //            ->setParameter('val', $value)
     //            ->getQuery()
     //            ->getOneOrNullResult()

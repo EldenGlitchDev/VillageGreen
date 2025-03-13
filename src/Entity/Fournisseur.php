@@ -27,6 +27,17 @@ class Fournisseur
     #[ORM\Column(length: 50)]
     private ?string $telFourni = null;
 
+    /**
+     * @var Collection<int, Article>
+     */
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'fournisseur')]
+    private Collection $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +87,36 @@ class Fournisseur
     public function setTelFourni(string $telFourni): static
     {
         $this->telFourni = $telFourni;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): static
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->setFournisseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getFournisseur() === $this) {
+                $article->setFournisseur(null);
+            }
+        }
 
         return $this;
     }

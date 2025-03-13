@@ -21,18 +21,15 @@ class Categorie
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageCat = null;
 
-    #[ORM\Column(length: 50, nullable:true)]
-    private ?string $idSousCat = null;
-
     /**
-     * @var Collection<int, Article>
+     * @var Collection<int, SousCategorie>
      */
-    #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'categories')]
-    private Collection $article;
+    #[ORM\OneToMany(targetEntity: SousCategorie::class, mappedBy: 'categorie')]
+    private Collection $souscategorie;
 
     public function __construct()
     {
-        $this->article = new ArrayCollection();
+        $this->souscategorie = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -64,38 +61,32 @@ class Categorie
         return $this;
     }
 
-    public function getIdSousCat(): ?string
-    {
-        return $this->idSousCat;
-    }
-
-    public function setIdSousCat(string $idSousCat): static
-    {
-        $this->idSousCat = $idSousCat;
-
-        return $this;
-    }
-
     /**
-     * @return Collection<int, Article>
+     * @return Collection<int, SousCategorie>
      */
-    public function getArticle(): Collection
+    public function getSouscategorie(): Collection
     {
-        return $this->article;
+        return $this->souscategorie;
     }
 
-    public function addArticle(Article $article): static
+    public function addSouscategorie(SousCategorie $souscategorie): static
     {
-        if (!$this->article->contains($article)) {
-            $this->article->add($article);
+        if (!$this->souscategorie->contains($souscategorie)) {
+            $this->souscategorie->add($souscategorie);
+            $souscategorie->setCategorie($this);
         }
 
         return $this;
     }
 
-    public function removeArticle(Article $article): static
+    public function removeSouscategorie(SousCategorie $souscategorie): static
     {
-        $this->article->removeElement($article);
+        if ($this->souscategorie->removeElement($souscategorie)) {
+            // set the owning side to null (unless already changed)
+            if ($souscategorie->getCategorie() === $this) {
+                $souscategorie->setCategorie(null);
+            }
+        }
 
         return $this;
     }

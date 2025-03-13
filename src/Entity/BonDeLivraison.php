@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\BonDeLivraisonRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,13 +15,7 @@ class BonDeLivraison
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $noFactBon = null;
-
-    #[ORM\Column(length: 50)]
     private ?string $nomBon = null;
-
-    #[ORM\Column(length: 50)]
-    private ?string $adresseBon = null;
 
     #[ORM\Column(length: 50)]
     private ?string $idEntrBon = null;
@@ -53,41 +45,29 @@ class BonDeLivraison
     private ?string $detailTransacBon = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $prixUnitHTVABon = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
     private ?string $fdpBon = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
     private ?string $fraisConditioBon = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $tvaBon = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
     private ?string $remiseBon = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $totalHTVA_TTCBon = null;
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $adrVoiePostBon = null;
+
+    #[ORM\Column(length: 5)]
+    private ?string $adrCodePostBon = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $idComm = null;
+    private ?string $adrVilleBon = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $adrPaysComm = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNoFactBon(): ?string
-    {
-        return $this->noFactBon;
-    }
-
-    public function setNoFactBon(string $noFactBon): static
-    {
-        $this->noFactBon = $noFactBon;
-
-        return $this;
     }
 
     public function getNomBon(): ?string
@@ -98,18 +78,6 @@ class BonDeLivraison
     public function setNomBon(string $nomBon): static
     {
         $this->nomBon = $nomBon;
-
-        return $this;
-    }
-
-    public function getAdresseBon(): ?string
-    {
-        return $this->adresseBon;
-    }
-
-    public function setAdresseBon(string $adresseBon): static
-    {
-        $this->adresseBon = $adresseBon;
 
         return $this;
     }
@@ -222,18 +190,6 @@ class BonDeLivraison
         return $this;
     }
 
-    public function getPrixUnitHTVABon(): ?string
-    {
-        return $this->prixUnitHTVABon;
-    }
-
-    public function setPrixUnitHTVABon(string $prixUnitHTVABon): static
-    {
-        $this->prixUnitHTVABon = $prixUnitHTVABon;
-
-        return $this;
-    }
-
     public function getFdpBon(): ?string
     {
         return $this->fdpBon;
@@ -258,18 +214,6 @@ class BonDeLivraison
         return $this;
     }
 
-    public function getTvaBon(): ?string
-    {
-        return $this->tvaBon;
-    }
-
-    public function setTvaBon(string $tvaBon): static
-    {
-        $this->tvaBon = $tvaBon;
-
-        return $this;
-    }
-
     public function getRemiseBon(): ?string
     {
         return $this->remiseBon;
@@ -282,26 +226,50 @@ class BonDeLivraison
         return $this;
     }
 
-    public function getTotalHTVATTCBon(): ?string
+    public function getAdrVoiePostBon(): ?string
     {
-        return $this->totalHTVA_TTCBon;
+        return $this->adrVoiePostBon;
     }
 
-    public function setTotalHTVATTCBon(string $totalHTVA_TTCBon): static
+    public function setAdrVoiePostBon(string $adrVoiePostBon): static
     {
-        $this->totalHTVA_TTCBon = $totalHTVA_TTCBon;
+        $this->adrVoiePostBon = $adrVoiePostBon;
 
         return $this;
     }
 
-    public function getIdComm(): ?string
+    public function getAdrCodePostBon(): ?string
     {
-        return $this->idComm;
+        return $this->adrCodePostBon;
     }
 
-    public function setIdComm(string $idComm): static
+    public function setAdrCodePostBon(string $adrCodePostBon): static
     {
-        $this->idComm = $idComm;
+        $this->adrCodePostBon = $adrCodePostBon;
+
+        return $this;
+    }
+
+    public function getAdrVilleBon(): ?string
+    {
+        return $this->adrVilleBon;
+    }
+
+    public function setAdrVilleBon(string $adrVilleBon): static
+    {
+        $this->adrVilleBon = $adrVilleBon;
+
+        return $this;
+    }
+
+    public function getAdrPaysComm(): ?string
+    {
+        return $this->adrPaysComm;
+    }
+
+    public function setAdrPaysComm(string $adrPaysComm): static
+    {
+        $this->adrPaysComm = $adrPaysComm;
 
         return $this;
     }

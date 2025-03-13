@@ -13,14 +13,14 @@ class Jeu1CatSousCat extends Fixture
     {
         
         $donneesCategories=[
-            ['Instruments à cordes', 'instruments_a_cordesCat.jpg', 1],
-            ['Instruments à vent', 'instruments_a_ventCat.png', 5],
-            ['Instruments à percussion', 'instruments_a_percussionCat.jpg', 9],
-            ['Claviers et pianos', 'claviers_pianosCat.png', 13],
-            ['Instruments de musique électronique', 'instruments_musique_electroniqueCat.png', 16],
-            ['Instruments traditionnels', 'instruments_tradiCat.png', 19],
-            ['Accessoires', 'accessoiresCat.png', 23],
-            ['Equipement audio et enregistrement', 'equipements_audio_enregistrementCat.png', 28],
+            ['Instruments à cordes', 'instruments_a_cordesCat.jpg'],
+            ['Instruments à vent', 'instruments_a_ventCat.png'],
+            ['Instruments à percussion', 'instruments_a_percussionCat.jpg'],
+            ['Claviers et pianos', 'claviers_pianosCat.png'],
+            ['Instruments de musique électronique', 'instruments_musique_electroniqueCat.png'],
+            ['Instruments traditionnels', 'instruments_tradiCat.png'],
+            ['Accessoires', 'accessoiresCat.png'],
+            ['Equipement audio et enregistrement', 'equipements_audio_enregistrementCat.png'],
         ];
 
         $donneesSousCategories=[
@@ -82,19 +82,9 @@ class Jeu1CatSousCat extends Fixture
         ];
 
         
-        foreach ($donneesSousCategories as [$nomSousCat, $imageSousCat]) {
+        
 
-            $sousCategories = new SousCategorie();
-
-            $sousCategories->setNomSousCat($nomSousCat)
-                           ->setImageSousCat($imageSousCat);
-
-            $manager->persist($sousCategories);
-        }
-
-            $manager->flush();
-
-        foreach ($donneesCategories as [$nomCat, $imageCat, $idSousCat]) {
+        foreach ($donneesCategories as [$nomCat, $imageCat]) {
         
             $categories = new Categorie();
             
@@ -112,7 +102,15 @@ class Jeu1CatSousCat extends Fixture
             $manager -> persist($categories);
         }
 
-        
+        foreach ($donneesSousCategories as [$nomSousCat, $imageSousCat]) {
+
+            $sousCategories = new SousCategorie();
+
+            $sousCategories->setNomSousCat($nomSousCat)
+                           ->setImageSousCat($imageSousCat);
+
+            $manager->persist($sousCategories);
+        }
 
         $manager->flush();
     }

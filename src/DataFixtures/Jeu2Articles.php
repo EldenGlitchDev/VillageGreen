@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Article;
+use App\Entity\Contenir;
 
 class Jeu2Articles extends Fixture
 {
@@ -13,74 +14,92 @@ class Jeu2Articles extends Fixture
         
         $donneesArticles=[
             
-            /*Instruments à cordes*/
+            ['Instrument à cordes', 'Guitare acoustique', 'Cordes de rechange, médiators', 'Yamaha', 'Guitare acoustique parfaite pour les débutants et intermédiaires, sonorité chaleureuse.', 'guitare_acoustique_yamaha.jpg', 2, 25, 150.00 ],
+            ['Instrument à cordes', 'Violon électrique', 'Archet, étui rigide', 'Stagg', 'Violon électrique avec une sonorité claire et un design moderne, idéal pour les musiciens sur scène.', 'violon_Stagg.png', 2, 0, 225.00],
+            ['Instrument à cordes', 'Basse électrique', 'Housse de transport, câbles', 'Fender', 'Basse électrique de qualité professionnelle, idéale pour un jeu de basse puissant et précis.', 'basse_fender.jpg', 2, 0, 650.00],
 
-            ['Instrument à cordes', 'Guitare acoustique', 'Cordes de rechange, médiators', 150.00, 'Yamaha', 'Guitare acoustique parfaite pour les débutants et intermédiaires, sonorité chaleureuse.', 20, 'guitare_acoustique_yamaha.jpg', 2, 25, 1, 'C1'],
-            ['Instrument à cordes', 'Violon électrique', 'Archet, étui rigide', 250.00, 'Stagg', 'Violon électrique avec une sonorité claire et un design moderne, idéal pour les musiciens sur scène.', 15, 'violon_Stagg.png', 2, 0, 2, 'C1'],
-            ['Instrument à cordes', 'Basse électrique', 'Housse de transport, câbles', 400.00, 'Fender', 'Basse électrique de qualité professionnelle, idéale pour un jeu de basse puissant et précis.', 10, 'basse_fender.jpg', 2, 0, 1, 'C1'],
+            /*Instruments à vent*/
 
-            /*Instruments à vents*/
-
-            ['Instrument à vent', 'Saxophone alto', 'Anches, étui', 600.00, 'Selmer', 'Saxophone alto avec une excellente projection sonore et une grande durabilité.', 8, 'saxophone_selmer.png', 2, 0, 5, 'C2'],
-            ['Instrument à vent', 'Flûte traversière', 'Cahier d\'exercices, huile pour clé', 250.00, 'Yamaha', 'Flûte traversière professionnelle avec un son clair et une réponse rapide.', 12, 'flutte_traversiere_yamaha.png', 2, 0, 4, 'C2'],
-            ['Instrument à vent', 'Trompette', 'Embouchure de rechange, huile', 400.00, 'Bach', 'Trompette de haute qualité avec un son brillant, idéale pour les orchestres et les musiciens solo.', 10, 'trompette_bach.png', 2, 5, 1, 'C2'],
+            ['Instrument à vent', 'Saxophone alto', 'Anches, étui', 'Selmer', 'Saxophone alto avec une excellente projection sonore et une grande durabilité.', 'saxophone_selmer.png', 2, 0, 110.00],
+            ['Instrument à vent', 'Flûte traversière', 'Cahier d\'exercices, huile pour clé', 'Yamaha', 'Flûte traversière professionnelle avec un son clair et une réponse rapide.', 'flutte_traversiere_yamaha.png', 2, 0, 500.00],
+            ['Instrument à vent', 'Trompette', 'Embouchure de rechange, huile', 'Bach', 'Trompette de haute qualité avec un son brillant, idéale pour les orchestres et les musiciens solo.', 'trompette_bach.png', 2, 5, 325.00],
 
             /*Instruments à percussion*/
 
-            ['Instrument à percussion', 'Batterie électronique', 'Pédale, cymbales', 800.00, 'Roland', 'Batterie électronique avec des sons réalistes et une réponse rapide, idéale pour la pratique à domicile.', 6, 'batterie_electronique_roland(percussion).png', 2, 0, 2, 'C3'],
-            ['Instrument à percussion', 'Cajón', 'Housse de transport', 120.00, 'Meinl', 'Cajón acoustique de qualité supérieure, parfait pour les performances en solo ou en groupe.', 14, 'cajon_meinl.jpg', 2, 0, 5, 'C3'],
-            ['Instrument à percussion', 'Congas', 'Paires de balais, huile pour peau', 300.00, 'LP', 'Congas avec une sonorité riche et profonde, utilisées dans divers styles musicaux latins.', 7, 'congas_LP.png', 2, 0, 4, 'C3'],
+            ['Instrument à percussion', 'Batterie électronique', 'Pédale, cymbales', 'Roland', 'Batterie électronique avec des sons réalistes et une réponse rapide, idéale pour la pratique à domicile.', 'batterie_electronique_roland(percussion).png', 2, 0, 275.00],
+            ['Instrument à percussion', 'Tambours', 'Mailloches, housse de transport', 'Meinl', 'Instrument de percussion offrant des sonorités puissantes et dynamiques, idéal pour la musique rythmique.', 'tambour_Meinl.png', 2, 0, 200.00],
+            ['Instrument à percussion', 'Cymbales', 'Paires de balais, huile pour la peau', 'LP', 'Cymbales de haute qualité pour des sons clairs et percutants, parfaites pour la batterie ou les ensembles percussifs.', 'cymbales_LP.png', 2, 0, 500.00],
 
             /*Claviers et pianos*/
 
-            ['Clavier et piano', 'Piano numérique', 'Pédale de sustain, banc', 450.00, 'Roland', 'Piano numérique avec 88 touches, idéal pour les pianistes débutants et intermédiaires.', 20, 'piano_numerique_roland.png', 2, 0, 4, 'C4'],
-            ['Clavier et piano', 'Clavier MIDI', 'Câble USB', 120.00, 'Akai', 'Clavier MIDI compact avec des touches sensibles à la vélocité, parfait pour la production musicale.', 30, 'clavier_midi_akai.png', 2, 50, 3, 'C4'],
-            ['Clavier et piano', 'Piano droit', 'Banquette, étouffoir', 2000.00, 'Yamaha', 'Piano droit acoustique avec une sonorité riche et une mécanique performante.', 5, 'piano_droit_yamaha.png', 2, 0, 1, 'C4'],
+            ['Clavier et piano', 'Piano numérique', 'Pédale de sustain, banc', 'Roland', 'Piano numérique avec 88 touches, idéal pour les pianistes débutants et intermédiaires.', 'piano_numerique_roland.png', 2, 0, 400.00],
+            ['Clavier et piano', 'Clavier MIDI', 'Câble USB', 'Akai', 'Clavier MIDI compact avec des touches sensibles à la vélocité, parfait pour la production musicale.', 'clavier_midi_akai.png', 2, 50, 600.00],
+            ['Clavier et piano', 'Orgue', 'Banquette, étouffoir', 'Yamaha', 'Orgue électronique de haute qualité offrant une large palette de sons, idéal pour les musiciens classiques et modernes.', 'orgue_yamaha.png', 2, 0, 900.00],
 
             /*Instruments de musique électronique*/
 
-            ['Instrument de musique électronique', 'Synthétiseur analogique', 'Alimentation, câble MIDI', 350.00, 'Korg', 'Synthétiseur analogique offrant des sonorités chaudes et riches pour les musiciens électroniques.', 15, 'synthetiseur_analogique_korg.png', 2, 0, 4, 'C5'],
-            ['Instrument de musique électronique', 'Batterie électronique', 'Pédale de grosse caisse, câbles', 800.00, 'Roland', 'Batterie électronique avec des pads sensibles et des sons de percussion réalistes, idéale pour les performances live.', 10, 'batterie_electronique_roland(musique_electronique).png', 2, 0, 3, 'C5'],
-            ['Instrument de musique électronique', 'Guitare MIDI', 'Câble USB, plectres', 400.00, 'Roland', 'Guitare MIDI permettant de jouer une large gamme de sons synthétiques, avec une interface fluide pour les musiciens.', 5, 'guitare_midi_roland.png', 2, 0, 5, 'C5'],
+            ['Instrument de musique électronique', 'Synthétiseur analogique', 'Alimentation, câble MIDI', 'Korg', 'Synthétiseur analogique offrant des sonorités chaudes et riches pour les musiciens électroniques.', 'synthetiseur_analogique_korg.png', 2, 0, 200.00],
+            ['Instrument de musique électronique', 'Boîtes à rythme', 'Pédale de grosse caisse, câbles', 'Roland', 'Boîte à rythme électronique polyvalente, idéale pour créer des beats et des rythmes pour tout type de musique.', 'boite_a_rythme_roland.png', 2, 0, 300.00],
+            ['Instrument de musique électronique', 'Otamatone', 'Câble USB, piles de rechange', 'Roland', 'Instrument électronique unique produisant des sons mélodiques et amusants, parfait pour les créateurs de musique expérimentale.', 'otamatone_roland.png', 2, 0, 350.00],
 
             /*Instruments traditionnels*/
 
-            ['Instrument traditionnel', 'Sitar', 'Housse de protection', 500.00, 'Ravi', 'Sitar de qualité artisanale avec un son authentique pour les musiciens expérimentés.', 4, 'sitar_ravi.png', 2, 0, 2, 'C6'],
-            ['Instrument traditionnel', 'Djembe', 'Housse, balais', 150.00, 'Meinl', 'Djembe en bois avec une peau de qualité, idéal pour les concerts et les sessions de percussion.', 12, 'djembe_meinl.png', 2, 10, 5, 'C6'],
-            ['Instrument traditionnel', 'Shamisen', 'Cordes de rechange', 250.00, 'Koto Shop', 'Shamisen japonais traditionnel avec une sonorité distincte et une grande capacité d\'expression.', 6, 'shamisen_koto.png', 2, 0, 2, 'C6'],
+            ['Instrument traditionnel', 'Sitar', 'Housse de protection', 'Ravi', 'Sitar de qualité artisanale avec un son authentique pour les musiciens expérimentés.', 'sitar_ravi.png', 2, 0, 170.00],
+            ['Instrument traditionnel', 'Didgeridoo', 'Housse, cire pour didgeridoo', 'Meinl', 'Instrument traditionnel australien en bois, connu pour ses sonorités profondes et vibrantes.', 'didgeridoo_meinl.png', 2, 10 , 225.00],
+            ['Instrument traditionnel', 'Shamisen', 'Cordes de rechange', 'Koto Shop', 'Shamisen japonais traditionnel avec une sonorité distincte et une grande capacité d\'expression.', 'shamisen_koto.png', 2, 0, 175.00],
 
             /*Accessoires*/
 
-            ['Accessoire', 'Médiators', 'Lot de 6', 5.00, 'Dunlop', 'Médiators en plastique dur, idéal pour les instruments à cordes.', 50, 'mediators_dunlop.png', 2, 0, 1, 'C7'],
-            ['Accessoire', 'Câble audio', 'Câble Jack 3m', 10.00, 'Hosa', 'Câble audio de qualité professionnelle, avec connecteurs plaqués or pour une transmission de signal optimale.', 100, 'cables_audio_hosa.png', 2, 0, 1, 'C7'],
-            ['Accessoire', 'Housse de transport', 'Pour guitare', 30.00, 'Ibanez', 'Housse de transport robuste et légère, offrant une protection optimale pour vos instruments.', 40, 'housse_guitare_ibanez.png', 2, 10, 5, 'C7'],
+            ['Accessoire', 'Médiators', 'Lot de 6', 'Dunlop', 'Médiators en plastique dur, idéal pour les instruments à cordes.', 'mediators_dunlop.png', 2, 0, 50.00],
+            ['Accessoire', 'Accordeurs', 'Accordeur clip', 'Hosa', 'Accordeur précis et facile à utiliser pour accorder tous types d\'instruments à cordes.', 'accordeur_hosa.png', 2, 0, 275.00],
+            ['Accessoire', 'Baguettes', 'Baguettes pour batterie', 'Ibanez', 'Baguettes de batterie robustes, idéales pour un jeu précis et puissant.', 'baguettes_hosa.jpg', 2, 10, 50.00],
 
             /*Equipement audio et enregistrement*/
-            
-            ['Équipement audio et enregistrement', 'Interface audio USB', 'Câble USB, logiciel d\'enregistrement', 120.00, 'Focusrite', 'Interface audio USB 2 canaux, idéale pour l\'enregistrement de musique à domicile.', 30, 'interface_audio_usb_focusrite.png', 2, 0, 4, 'C8'],
-            ['Équipement audio et enregistrement', 'Enregistreur portable', 'Carte mémoire, trépied', 200.00, 'Zoom', 'Enregistreur portable avec une qualité d\'enregistrement haute résolution, parfait pour les podcasts et les prises de son sur le terrain.', 20, 'enregistreur_portable_zoom.png', 2, 0, 4, 'C8'],
-            ['Équipement audio et enregistrement', 'Moniteurs de studio', 'Câbles d\'alimentation, supports', 350.00, 'Yamaha', 'Moniteurs de studio avec un son clair et précis, parfaits pour le mixage et l\'enregistrement.', 15, 'moniteurs_de_studio_yamaha.jpg', 2, 0, 2, 'C8'],
 
+            ['Équipement audio et enregistrement', 'Interface audio USB', 'Câble USB, logiciel d\'enregistrement', 'Focusrite', 'Interface audio USB 2 canaux, idéale pour l\'enregistrement de musique à domicile.', 'interface_audio_usb_focusrite.png', 2, 0, 750.00],
+            ['Équipement audio et enregistrement', 'Micro', 'Filtre anti-pop, support de microphone', 'Zoom', 'Microphone de haute qualité conçu pour l\'enregistrement et la captation sonore en studio ou en live.', 'micro_zoom.png', 2, 0, 90.00],
+            ['Équipement audio et enregistrement', 'Enceinte', 'Câbles d\'alimentation, supports', 'Yamaha', 'Enceinte de haute qualité offrant un son clair et puissant, idéale pour les studios d\'enregistrement et les performances live.', 'enceinte_yamaha.png', 2, 0, 250.00],
         ];
 
-        foreach ($donneesArticles as [$typeArt, $nomArt, $accessoireArt, $prixArt, $marqueArt, $descrArt, $quStockArt, $photoArt, $garantieArt, $promoArt, $idFourni, $idCat]) {
+        foreach ($donneesArticles as [$typeArt, $nomArt, $accessoireArt, $marqueArt, $descrArt, $photoArt, $garantieArt, $promoArt, $prixUnitHTVAArt]) {
 
         $articles = new Article();
 
         $articles->setTypeArt($typeArt)
                  ->setNomArt($nomArt)
                  ->setAccessoireArt($accessoireArt)
-                 ->setPrixArt($prixArt)
                  ->setMarqueArt($marqueArt)
                  ->setDescrArt($descrArt)
-                 ->setQuStockArt($quStockArt)
                  ->setPhotoArt($photoArt)
                  ->setGarantieArt($garantieArt)
                  ->setPromoArt($promoArt)
-                 ->setIdFourni($idFourni)
-                 ->setIdCat($idCat);
+                 ->setPrixUnitHTVAArt($prixUnitHTVAArt);
         $manager->persist($articles);
         }
+
+        $donneesContenir=[
+            [150.00, 20],
+            [250.00, 15],
+            [400.00, 10],
+            [600.00, 8],
+            [250.00, 12],
+            [400.00, 10],
+            [800.00, 6],
+            [300.00, 7],
+            [450.00, 20],
+            [500.00, 4],
+            [5.00, 50],
+            [120.00, 30],
+            [350.00, 15],
+        ];
+
+        foreach ($donneesContenir as [$PrixArt, $QuStockArt])
+
+        $contenir = new Contenir();
+
+        $contenir->setPrixArt($PrixArt)
+                 ->setQuStockArt($QuStockArt);
+        $manager->persist($contenir);
 
         $manager->flush();
     }

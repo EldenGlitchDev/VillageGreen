@@ -16,7 +16,7 @@ final class AccueilController extends AbstractController
     private $articleRepository;
     private $sousCategorieRepository;
 
-    public function __construct(CategorieRepository $categorieRepository, ArticleRepository $articleRepository, SousCategorieRepository $sousCategorieRepository)
+    /*public function __construct(CategorieRepository $categorieRepository, ArticleRepository $articleRepository, SousCategorieRepository $sousCategorieRepository)
     {
         $this->categorieRepository=$categorieRepository;
         $this->articleRepository=$articleRepository;

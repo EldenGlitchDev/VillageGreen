@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,26 +17,11 @@ class Commande
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateComm = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateLivrComm = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $prixTotalComm = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $prixUnitComm = null;
-
     #[ORM\Column(length: 50)]
     private ?string $libelleComm = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $statutComm = null;
-
     #[ORM\Column(length: 50)]
     private ?string $utilComm = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $sousTotalComm = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
     private ?string $fdp = null;
@@ -48,9 +31,6 @@ class Commande
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $datePaiem = null;
-
-    #[ORM\Column(length: 10)]
-    private ?string $statutPaiem = null;
 
     #[ORM\Column(length: 20)]
     private ?string $methodePaiem = null;
@@ -70,8 +50,29 @@ class Commande
     #[ORM\Column(length: 50)]
     private ?string $paysComm = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $adrVoiePostComm = null;
+
+    #[ORM\Column(length: 5)]
+    private ?string $adrCodePostComm = null;
+
     #[ORM\Column(length: 50)]
-    private ?string $idUtil = null;
+    private ?string $adrVilleComm = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    private ?Article $article = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    private ?Utilisateur $utilisateur = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    private ?StatutCommande $statutCommande = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    private ?StatutPaiement $statutPaiement = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?BonDeLivraison $bondelivraisons = null;
 
     public function getId(): ?int
     {
@@ -90,42 +91,6 @@ class Commande
         return $this;
     }
 
-    public function getDateLivrComm(): ?\DateTimeInterface
-    {
-        return $this->dateLivrComm;
-    }
-
-    public function setDateLivrComm(\DateTimeInterface $dateLivrComm): static
-    {
-        $this->dateLivrComm = $dateLivrComm;
-
-        return $this;
-    }
-
-    public function getPrixTotalComm(): ?string
-    {
-        return $this->prixTotalComm;
-    }
-
-    public function setPrixTotalComm(string $prixTotalComm): static
-    {
-        $this->prixTotalComm = $prixTotalComm;
-
-        return $this;
-    }
-
-    public function getPrixUnitComm(): ?string
-    {
-        return $this->prixUnitComm;
-    }
-
-    public function setPrixUnitComm(string $prixUnitComm): static
-    {
-        $this->prixUnitComm = $prixUnitComm;
-
-        return $this;
-    }
-
     public function getLibelleComm(): ?string
     {
         return $this->libelleComm;
@@ -138,18 +103,6 @@ class Commande
         return $this;
     }
 
-    public function getStatutComm(): ?string
-    {
-        return $this->statutComm;
-    }
-
-    public function setStatutComm(string $statutComm): static
-    {
-        $this->statutComm = $statutComm;
-
-        return $this;
-    }
-
     public function getUtilComm(): ?string
     {
         return $this->utilComm;
@@ -158,18 +111,6 @@ class Commande
     public function setUtilComm(string $utilComm): static
     {
         $this->utilComm = $utilComm;
-
-        return $this;
-    }
-
-    public function getSousTotalComm(): ?string
-    {
-        return $this->sousTotalComm;
-    }
-
-    public function setSousTotalComm(string $sousTotalComm): static
-    {
-        $this->sousTotalComm = $sousTotalComm;
 
         return $this;
     }
@@ -206,18 +147,6 @@ class Commande
     public function setDatePaiem(\DateTimeInterface $datePaiem): static
     {
         $this->datePaiem = $datePaiem;
-
-        return $this;
-    }
-
-    public function getStatutPaiem(): ?string
-    {
-        return $this->statutPaiem;
-    }
-
-    public function setStatutPaiem(string $statutPaiem): static
-    {
-        $this->statutPaiem = $statutPaiem;
 
         return $this;
     }
@@ -294,14 +223,98 @@ class Commande
         return $this;
     }
 
-    public function getIdUtil(): ?string
+    public function getAdrVoiePostComm(): ?string
     {
-        return $this->idUtil;
+        return $this->adrVoiePostComm;
     }
 
-    public function setIdUtil(string $idUtil): static
+    public function setAdrVoiePostComm(string $adrVoiePostComm): static
     {
-        $this->idUtil = $idUtil;
+        $this->adrVoiePostComm = $adrVoiePostComm;
+
+        return $this;
+    }
+
+    public function getAdrCodePostComm(): ?string
+    {
+        return $this->adrCodePostComm;
+    }
+
+    public function setAdrCodePostComm(string $adrCodePostComm): static
+    {
+        $this->adrCodePostComm = $adrCodePostComm;
+
+        return $this;
+    }
+
+    public function getAdrVilleComm(): ?string
+    {
+        return $this->adrVilleComm;
+    }
+
+    public function setAdrVilleComm(string $adrVilleComm): static
+    {
+        $this->adrVilleComm = $adrVilleComm;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): static
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function getStatutCommande(): ?StatutCommande
+    {
+        return $this->statutCommande;
+    }
+
+    public function setStatutCommande(?StatutCommande $statutCommande): static
+    {
+        $this->statutCommande = $statutCommande;
+
+        return $this;
+    }
+
+    public function getStatutPaiement(): ?StatutPaiement
+    {
+        return $this->statutPaiement;
+    }
+
+    public function setStatutPaiement(?StatutPaiement $statutPaiement): static
+    {
+        $this->statutPaiement = $statutPaiement;
+
+        return $this;
+    }
+
+    public function getBondelivraisons(): ?BonDeLivraison
+    {
+        return $this->bondelivraisons;
+    }
+
+    public function setBondelivraisons(?BonDeLivraison $bondelivraisons): static
+    {
+        $this->bondelivraisons = $bondelivraisons;
 
         return $this;
     }

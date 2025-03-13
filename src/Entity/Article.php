@@ -25,17 +25,11 @@ class Article
     #[ORM\Column(length: 50)]
     private ?string $accessoireArt = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
-    private ?string $prixArt = null;
-
     #[ORM\Column(length: 50)]
     private ?string $marqueArt = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descrArt = null;
-
-    #[ORM\Column]
-    private ?int $quStockArt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photoArt = null;
@@ -46,14 +40,25 @@ class Article
     #[ORM\Column(nullable: true)]
     private ?int $promoArt = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $idFourni = null;
+    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2)]
+    private ?string $prixUnitHTVAArt = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $idCat = null;
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    private ?SousCategorie $sousCategorie = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $salesCount = null;
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    private ?Fournisseur $fournisseur = null;
+
+    /**
+     * @var Collection<int, Commande>
+     */
+    #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'article')]
+    private Collection $commandes;
+
+    public function __construct()
+    {
+        $this->commandes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -96,18 +101,6 @@ class Article
         return $this;
     }
 
-    public function getPrixArt(): ?string
-    {
-        return $this->prixArt;
-    }
-
-    public function setPrixArt(string $prixArt): static
-    {
-        $this->prixArt = $prixArt;
-
-        return $this;
-    }
-
     public function getMarqueArt(): ?string
     {
         return $this->marqueArt;
@@ -128,18 +121,6 @@ class Article
     public function setDescrArt(?string $descrArt): static
     {
         $this->descrArt = $descrArt;
-
-        return $this;
-    }
-
-    public function getQuStockArt(): ?int
-    {
-        return $this->quStockArt;
-    }
-
-    public function setQuStockArt(int $quStockArt): static
-    {
-        $this->quStockArt = $quStockArt;
 
         return $this;
     }
@@ -180,38 +161,68 @@ class Article
         return $this;
     }
 
-    public function getIdFourni(): ?string
+    public function getPrixUnitHTVAArt(): ?string
     {
-        return $this->idFourni;
+        return $this->prixUnitHTVAArt;
     }
 
-    public function setIdFourni(string $idFourni): static
+    public function setPrixUnitHTVAArt(string $prixUnitHTVAArt): static
     {
-        $this->idFourni = $idFourni;
+        $this->prixUnitHTVAArt = $prixUnitHTVAArt;
 
         return $this;
     }
 
-    public function getIdCat(): ?string
+    public function getSousCategorie(): ?SousCategorie
     {
-        return $this->idCat;
+        return $this->sousCategorie;
     }
 
-    public function setIdCat(string $idCat): static
+    public function setSousCategorie(?SousCategorie $sousCategorie): static
     {
-        $this->idCat = $idCat;
+        $this->sousCategorie = $sousCategorie;
 
         return $this;
     }
 
-    public function getSalesCount(): ?int
+    public function getFournisseur(): ?Fournisseur
     {
-        return $this->salesCount;
+        return $this->fournisseur;
     }
 
-    public function setSalesCount(?int $salesCount): static
+    public function setFournisseur(?Fournisseur $fournisseur): static
     {
-        $this->salesCount = $salesCount;
+        $this->fournisseur = $fournisseur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): static
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes->add($commande);
+            $commande->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): static
+    {
+        if ($this->commandes->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getArticle() === $this) {
+                $commande->setArticle(null);
+            }
+        }
 
         return $this;
     }

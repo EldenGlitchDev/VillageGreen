@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Commander;
+use App\Entity\Contenir;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Commander>
+ * @extends ServiceEntityRepository<Contenir>
  */
-class CommanderRepository extends ServiceEntityRepository
+class ContenirRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Commander::class);
+        parent::__construct($registry, Contenir::class);
     }
 
     //    /**
-    //     * @return Commander[] Returns an array of Commander objects
+    //     * @return Contenir[] Returns an array of Contenir objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class CommanderRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Commander
+    //    public function findOneBySomeField($value): ?Contenir
     //    {
     //        return $this->createQueryBuilder('c')
     //            ->andWhere('c.exampleField = :val')
