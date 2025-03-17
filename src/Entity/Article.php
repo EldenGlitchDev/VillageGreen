@@ -55,6 +55,9 @@ class Article
     #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'article')]
     private Collection $commandes;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $salesCount = null;
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
@@ -223,6 +226,18 @@ class Article
                 $commande->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSalesCount(): ?int
+    {
+        return $this->salesCount;
+    }
+
+    public function setSalesCount(?int $salesCount): static
+    {
+        $this->salesCount = $salesCount;
 
         return $this;
     }

@@ -16,7 +16,7 @@ final class AccueilController extends AbstractController
     private $articleRepository;
     private $sousCategorieRepository;
 
-    /*public function __construct(CategorieRepository $categorieRepository, ArticleRepository $articleRepository, SousCategorieRepository $sousCategorieRepository)
+    public function __construct(CategorieRepository $categorieRepository, ArticleRepository $articleRepository, SousCategorieRepository $sousCategorieRepository)
     {
         $this->categorieRepository=$categorieRepository;
         $this->articleRepository=$articleRepository;
@@ -37,58 +37,21 @@ final class AccueilController extends AbstractController
         ]);
     }
 
-    /*#[Route('/categories/{id}', name: 'app_sous_categorie', requirements: ['id' => '\d+'])]
-    public function categorie(int $id): Response
+    
+
+    #[Route('/sous-categorie-{categorie_id}', name: 'app_sous_categorie', requirements: ['id' => '\d+'])]
+    public function SelectSousCategorie(int $categorie_id): Response
     {
-        $categories = $this->categorieRepository->findAll($id);
-        $souscategories = $this->sousCategorieRepository->findBy(['categorie' => $categories]);
+            $categories = $this->categorieRepository->find($categorie_id);
+           
 
-        return $this->render('accueil/sousCat.html.twig', [
-            'controller_name' => 'AccueilController',
-            'souscategories' => $souscategories,
-            ]);
-    }*/
 
-    #[Route('/categories/{id}', name: 'app_sous_categorie')]
-    public function categorie(int $id): Response
-    {
-        $souscategories = $this->categorieRepository->find($id);
+            $souscategorie = $categories->getSousCategorie();
 
-        return $this->render('accueil/sousCat.html.twig', [
-            'controller_name' => 'AccueilController',
-            'souscategories' => $souscategories,
+            return $this->render('accueil/sousCat.html.twig',[
+                'souscategories' => $souscategorie,
+
             ]);
     }
 
-    /*#[Route('/categories/{id}', name: 'app_sous_categorie', requirements: ['id' => '\d+'])]
-public function categorie(int $id): Response
-{
-    // Récupère une seule catégorie à partir de son ID
-    $categorie = $this->categorieRepository->find($id);
-
-    // Si la catégorie n'existe pas, tu peux retourner une page d'erreur ou autre logique de gestion
-    if (!$categorie) {
-        throw $this->createNotFoundException('La catégorie n\'existe pas.');
-    }
-
-    // Récupère la sous-catégorie associée à cette catégorie (via la relation ManyToOne)
-    $sousCategorie = $categorie->getSousCategorie();
-
-    // Vérifie si une sous-catégorie existe
-    if (!$sousCategorie) {
-        throw $this->createNotFoundException('Aucune sous-catégorie associée à cette catégorie.');
-    }
-
-    if (!$sousCategorie) {
-        dump('Pas de sous-catégorie trouvée pour cette catégorie');
-    }
-    
-
-    return $this->render('accueil/sousCat.html.twig', [
-        'controller_name' => 'AccueilController',
-        'souscategorie' => $sousCategorie,
-    ]);
-}*/
-
-    
 }
