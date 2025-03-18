@@ -54,4 +54,11 @@ final class AccueilController extends AbstractController
             ]);
     }
 
+    #[Route('/fraisdeport_delaislivraison', name: 'app_fraisdeport_delaislivraison')]
+    public function fraisdeport_delaislivraison(): Response{
+        return $this->render('fdpdelais_livraison/fdpdelais_livraison.html.twig', [
+            'controller_name' => 'AccueilController',
+        ]);
+    }
+
 }

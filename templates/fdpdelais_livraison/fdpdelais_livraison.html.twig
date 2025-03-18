@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Frais de port et délais de livraison
+{% endblock %}
+
+{% block body %}
+
+	<div class="container-fluid barreListeCat">
+		<div class="row">
+
+			<ul class="list-unstyled d-flex justify-content-center mt-4">
+				<li>
+					<p>Instruments à cordes</p>
+				</li>
+				<li>
+					<p>Instruments à vent</p>
+				</li>
+				<li>
+					<p>Instruments à percussion</p>
+				</li>
+				<li>
+					<p>Claviers et pianos</p>
+				</li>
+				<li>
+					<p>Instruments de musique électronique</p>
+				</li>
+				<li>
+					<p>Instruments traditionnels</p>
+				</li>
+				<li>
+					<p>Accessoires</p>
+				</li>
+				<li>
+					<p>Equipements audio et enregistrement</p>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+
+	<div class="mx-4">
+		<h1>Frais de port et délais de livraison</h1>
+
+		<p>Les frais de port et les délais de livraison peuvent varier en fonction du pays de destination. 
+			    Nous vous invitons à consulter les informations ci-dessous pour connaître les options disponibles, 
+			    ainsi que les coûts et délais estimés pour votre commande. Si vous avez des questions spécifiques, 
+			    n’hésitez pas à nous contacter via ce formulaire de contact.</p>
+
+		<h3>Nous expédions dans l'Union Européenne</h3>
+
+		<p>Veuillez sélectionner un pays pour voir le délai de livraison et les frais d'expédition</p>
+		<p>Choisissez un pays :</p>
+	</div>
+
+	<div class="mx-4 col-2 d-flex justify-content-start">
+		<select class="form-select">
+			<option>Allemagne</option>
+			<option>Autriche</option>
+			<option>Belgique</option>
+			<option>Bulgarie</option>
+			<option>Chypre</option>
+			<option>Croatie</option>
+			<option>Danemark</option>
+			<option>Espagne</option>
+			<option>Estonie</option>
+			<option>Finlande</option>
+			<option>France</option>
+			<option>Grèce</option>
+			<option>Hongrie</option>
+			<option>Irlande</option>
+			<option>Italie</option>
+			<option>Lituanie</option>
+			<option>Letonnie</option>
+			<option>Luxembourg</option>
+			<option>Malte</option>
+			<option>Pays-Bas</option>
+			<option>Pologne</option>
+			<option>Portugal</option>
+			<option>République Tchèque</option>
+			<option>Roumanie</option>
+			<option>Royaume-Uni</option>
+			<option>Slovaquie</option>
+			<option>Slovénie</option>
+			<option>Suède</option>
+		</select>
+	</div>
+
+<div class="mx-4">
+
+<h3>Services d'expédition</h3>
+
+<div class="d-flex justify-content-start">
+<img src="{{ asset ('./img/icones/icons8-ups-96.png') }}" alt="upslogo" width="50" height="50">
+<p>Délais de livraison</p>
+<p>Frais d'expédition + Frais de port offerts</p>
+</div>
+
+<div class="d-flex justify-content-start">
+<img src="{{ asset ('./img/icones/Logo-laposte.png') }}" alt="lapostelogo" width="50" height="50">
+<p>Délais de livraison</p>
+<p>Frais d'expédition + Frais de port offerts</p>
+</div>
+
+</div>
+
+{% endblock %}

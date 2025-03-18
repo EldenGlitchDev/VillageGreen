@@ -84,30 +84,6 @@ class Jeu1CatSousCat extends Fixture
             $manager->persist($categories);
             $categorie[$nomCat] = $categories; // Stockage de la catégorie pour l'utiliser dans les sous-catégories
         }
-        /*foreach ($donneesCategories as $nomCat => $imageCat) {
-        
-            $categories = new Categorie();
-            
-            $categories->setNomCat($nomCat)
-                       ->setImageCat($imageCat);
-                       
-            $manager -> persist($categories);
-            $categorie[$nomCat] = $categories;
-        }*/
-
-        /*foreach ($donneesSousCategories as [$nomSousCat, $imageSousCat]) {
-
-            $sousCategories = new SousCategorie();
-
-            $sousCategories->setNomSousCat($nomSousCat)
-                           ->setImageSousCat($imageSousCat);
-
-
-                          
-                            $sousCategories->setCategorie($categorie[$nomCat]);
-                        
-            $manager->persist($sousCategories);
-        }*/
 
         foreach ($donneesSousCategories as $nomCat => $sousCategoriesArray) {
             $categorieCourante = $categorie[$nomCat]; // Récupération de la catégorie actuelle

@@ -4,7 +4,40 @@
 
 {% block body %}
 
-	<div class='container-fluid'>
+<div class="container-fluid barreListeCat">
+		<div class="row">
+
+			<ul class="list-unstyled d-flex justify-content-center mt-4">
+				<li>
+					<p>Instruments à cordes</p>
+				</li>
+				<li>
+					<p>Instruments à vent</p>
+				</li>
+				<li>
+					<p>Instruments à percussion</p>
+				</li>
+				<li>
+					<p>Claviers et pianos</p>
+				</li>
+				<li>
+					<p>Instruments de musique électronique</p>
+				</li>
+				<li>
+					<p>Instruments traditionnels</p>
+				</li>
+				<li>
+					<p>Accessoires</p>
+				</li>
+				<li>
+					<p>Equipements audio et enregistrement</p>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+
+	<div class='container-fluid col-1'>
         <div class='row'>
 
             {% for souscategorie in souscategories %}
