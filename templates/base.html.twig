@@ -24,7 +24,7 @@
 		<header>
 			<nav class="navbar navbar-expand-lg headerBackground">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="{{ path ('app_index') }}" alt "retourAccueil">
 						<img src="{{ asset ('./img/icones/icons8-accueil-100.png') }}" alt="accueil" width="80" height="80" class="mx-3 img-fluid">
 					</a>
 
@@ -147,12 +147,12 @@
 						<hr class="mt-4">
 
 						<div class="d-flex justify-content-center mt-5">
-							<p class="mx-5">Politique de confidentialité</p>
-							<p class="mx-5">Mentions légales</p>
+							<a href="{{ path ('app_politique_conf') }}" class="mx-5">Politique de confidentialité</a>
+							<a href="{{ path ('app_mentions_leg') }}" class="mx-5">Mentions légales</a>
 						</div>
 						<div class="d-flex justify-content-center">
 							<a href="{{ path ('app_fraisdeport_delaislivraison') }}" class="mx-5">Frais de port et de livraison</a>
-							<p class="mx-5">Nous contacter</p>
+							<a href="{{ path ('app_contact') }}" class="mx-5">Nous contacter</p>
 						</div>
 
 						<div class="d-flex justify-content-end">
