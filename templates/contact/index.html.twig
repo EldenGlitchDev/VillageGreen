@@ -1,17 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nous contacter{% endblock %}
+{% block title %}Nous contacter
+{% endblock %}
 
 {% block body %}
 
-<img src="{{ asset ('./img/fonds/african-american-handsome-jazz-musician-playing-bass-guitar-studio-black-background-music-concept-young-joyful-attractive-guy-improvising-close-up-retro-portrait.jpg') }}" alt="handsome-jazz-musician-playing-bass-guitar">
-<img src="{{ asset ('./img/fonds/top-view-metal-flute.jpg') }}" alt="top-view-metal-flute">
-<img src="{{ asset ('./img/fonds/musical-keyboard-tablet-dark-room-music-production.jpg') }}" alt="musical-keyboard-tablet">
-<img src="{{ asset ('./img/fonds/drummer-plays-drums.jpg') }}" alt="drummer-plays-drums">
+	<div class="container-fluid">
+		<div class="row">
 
-<h1>Nous contacter</h1>
-<p>Les champs possédant une étoile '*' sont obligatoires à remplir<p>
+			<div class="d-flex flex-column justify-content-start col-5 g-0">
+				<img src="{{ asset ('./img/fonds/african-american-handsome-jazz-musician-playing-bass-guitar-studio-black-background-music-concept-young-joyful-attractive-guy-improvising-close-up-retro-portrait.jpg') }}" alt="handsome-jazz-musician-playing-bass-guitar">
+				<img src="{{ asset ('./img/fonds/top-view-metal-flute.jpg') }}" alt="top-view-metal-flute">
+				<img src="{{ asset ('./img/fonds/musical-keyboard-tablet-dark-room-music-production.jpg') }}" alt="musical-keyboard-tablet">
+				<img src="{{ asset ('./img/fonds/drummer-plays-drums.jpg') }}" alt="drummer-plays-drums">
+			</div>
+
+			<div class="col-7">
+				<h1>Nous contacter</h1>
+				<p>Les champs possédant une étoile '*' sont obligatoires à remplir</p>
 
 
+				<div class="mb-3">
+					<label for="labelNomContact" class="form-label">Nom</label>
+					<input type="text" class="form-control" id="labelNomContact">
+				</div>
+				<div class="mb-3">
+					<label for="labelPrenomContact" class="form-label">Prénom</label>
+					<input type="text" class="form-control" id="labelPrenomContact">
+				</div>
+				<div class="mb-3">
+					<label for="labelGroupeContact" class="form-label">Société/Institution/Groupe (si vous êtes un professionnel, sinon laissez le champ libre)</label>
+					<input type="text" class="form-control" id="labelGroupeContact">
+				</div>
+				<div class="mb-3">
+					<label for="lableAdresseContact" class="form-label">Adresse</label>
+					<input type="text" class="form-control" id="lableAdresseContact">
+				</div>
+				<div class="mb-3">
+					<label for="labelMailContact" class="form-label">Adresse email</label>
+					<input type="email" class="form-control" id="labelMailContact" placeholder="exemple@exemple.com">
+				</div>
+				<div class="mb-3">
+					<label for="labelTelContact" class="form-label">Numéro de téléphone</label>
+					<input type="text" class="form-control" id="labelTelContact" placeholder="01/01/01/01/01">
+				</div>
+				<div class="mb-3">
+					<label for="labelSujetContact" class="form-label">Sujet</label>
+					<input type="text" class="form-control" id="labelSujetContact">
+				</div>
+				<div class="mb-3">
+					<label for="labelMessageContact" class="form-label">Message</label>
+					<textarea class="form-control" id="labelMessageContact" rows="3"></textarea>
+				</div>
+            <button type="button" class="btn btn-primary boutonValidationForm">Envoyer</button>
+			</div>
+
+
+		</div>
+	</div>
 
 {% endblock %}
