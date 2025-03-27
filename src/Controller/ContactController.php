@@ -44,7 +44,7 @@ final class ContactController extends AbstractController
             }
         }
 
-        return $this->render('contact/index.html.twig', [
+        return $this->render('templates/contact/index.html.twig', [
             'form' => $form
         ]);
     }

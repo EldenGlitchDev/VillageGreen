@@ -1,0 +1,151 @@
+@startuml
+class SousCategorie {
+	**id : int**
+	nomSousCat : string
+	imageSousCat : string
+	<color:#0000dd>categorie : Categorie</color>
+	<color:#0000dd>articles : Article[]</color>
+}
+
+class BonDeLivraison {
+	**id : int**
+	nomBon : string
+	idEntrBon : string
+	dateCommBon : DateTimeInterface
+	dateExpBon : DateTimeInterface
+	dateLivrBon : DateTimeInterface
+	detailProdBon : string
+	quBon : int
+	dateFactBon : DateTimeInterface
+	noTVABon : string
+	detailTransacBon : string
+	fdpBon : string
+	fraisConditioBon : string
+	remiseBon : string
+	adrVoiePostBon : string
+	adrCodePostBon : string
+	adrVilleBon : string
+	adrPaysComm : string
+}
+
+class StatutCommande {
+	**id : int**
+	statutComm : string
+	<color:#0000dd>commandes : Commande[]</color>
+}
+
+class Categorie {
+	**id : int**
+	nomCat : string
+	imageCat : string
+	<color:#0000dd>souscategorie : SousCategorie[]</color>
+}
+
+class StatutPaiement {
+	**id : int**
+	statutPaiem : string
+	<color:#0000dd>commandes : Commande[]</color>
+}
+
+class Article {
+	**id : int**
+	typeArt : string
+	nomArt : string
+	accessoireArt : string
+	marqueArt : string
+	descrArt : string
+	photoArt : string
+	garantieArt : string
+	promoArt : int
+	prixUnitHTVAArt : string
+	<color:#0000dd>sousCategorie : SousCategorie</color>
+	<color:#0000dd>fournisseur : Fournisseur</color>
+	<color:#0000dd>commandes : Commande[]</color>
+	salesCount : int
+}
+
+class Fournisseur {
+	**id : int**
+	nomFourni : string
+	mailFourni : string
+	adresseFourni : string
+	telFourni : string
+	<color:#0000dd>articles : Article[]</color>
+}
+
+class Vend {
+	**id : int**
+}
+
+class Contact {
+	**id : int**
+	nomContact : string
+	prenomContact : string
+	mailContact : string
+	sujetContact : string
+	messageContact : string
+}
+
+class Commande {
+	**id : int**
+	dateComm : DateTimeInterface
+	libelleComm : string
+	utilComm : string
+	fdp : string
+	montantPaiem : string
+	datePaiem : DateTimeInterface
+	methodePaiem : string
+	commandePaiem : string
+	adrFactUtil : string
+	adrLivrUtil : string
+	fraisExpComm : string
+	paysComm : string
+	adrVoiePostComm : string
+	adrCodePostComm : string
+	adrVilleComm : string
+	<color:#0000dd>article : Article</color>
+	<color:#0000dd>utilisateur : Utilisateur</color>
+	<color:#0000dd>statutCommande : StatutCommande</color>
+	<color:#0000dd>statutPaiement : StatutPaiement</color>
+	<color:#0000dd>bondelivraisons : BonDeLivraison</color>
+}
+
+class Utilisateur {
+	**id : int**
+	email : string
+	roles : array
+	password : string
+	nomUtil : string
+	prenomUtil : string
+	siren : string
+	numTelUtil : string
+	typeUtil : string
+	promoUtil : int
+	adrVoiePostUtil : string
+	adrCodePostUtil : string
+	adrVilleUtil : string
+	adrPaysUtil : string
+	<color:#0000dd>commandes : Commande[]</color>
+}
+
+class Contenir {
+	**id : int**
+	prixArt : int
+	quStockArt : int
+}
+
+SousCategorie "*"--"1" Categorie
+SousCategorie "1"--"*" Article
+StatutCommande "1"--"*" Commande
+StatutPaiement "1"--"*" Commande
+Article "*"--"1" Fournisseur
+Article "1"--"*" Commande
+Commande "*"--"1" Utilisateur
+Commande "1"--"1" BonDeLivraison
+
+
+hide methods
+
+hide circle
+
+@enduml

@@ -19,8 +19,7 @@
 				<h1>Nous contacter</h1>
 				<p>Les champs possédant une étoile '*' sont obligatoires à remplir</p>
 
-
-				<!--div class="mb-3">
+<!--div class="mb-3">
 					<label for="labelNomContact" class="form-label">Nom</label>
 					<input type="text" class="form-control" id="labelNomContact">
 				</div>
@@ -53,11 +52,11 @@
 					<textarea class="form-control" id="labelMessageContact" rows="3"></textarea>
 				</div>
             <button type="button" class="btn btn-primary boutonValidationForm">Envoyer</button-->
-
+				
 			{{ form_start(form) }}
 
-				{{ form_label(form.NomContact) }}
-				{{ form_widget(form.NomContact) }}
+				{{ form_label(form.nomContact) }}
+				{{ form_widget(form.nomContact) }}
 
 				{{ form_label(form.prenomContact) }}
 				{{ form_widget(form.prenomContact) }}
@@ -68,11 +67,10 @@
 				{{ form_label(form.sujetContact) }}
 				{{ form_widget(form.sujetContact) }}
 
-				{{ form_label(form.MessageContact) }}
-				{{ form_widget(form.MessageContact) }}
+				{{ form_label(form.messageContact) }}
+				{{ form_widget(form.messageContact) }}
 
 			{{ form_end(form) }}
-
 
 
 
