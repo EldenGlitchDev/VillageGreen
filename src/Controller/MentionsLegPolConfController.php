@@ -23,12 +23,4 @@ final class MentionsLegPolConfController extends AbstractController
             'controller_name' => 'MentionsLegPolConfController',
         ]);
     }
-
-    #[Route('/contact', name: 'app_contact')]
-    public function Contact(): Response
-    {
-        return $this->render('contact/index.html.twig', [
-            'controller_name' => 'MentionsLegPolConfController',
-        ]);
-    }
 }

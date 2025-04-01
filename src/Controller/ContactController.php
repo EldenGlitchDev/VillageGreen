@@ -23,6 +23,7 @@ final class ContactController extends AbstractController
 
         $form = $this->createForm(ContactFormType::class, $contact);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
             $entity_manager_interface->persist($contact);
@@ -44,7 +45,7 @@ final class ContactController extends AbstractController
             }
         }
 
-        return $this->render('templates/contact/index.html.twig', [
+        return $this->render('contact/index.html.twig', [
             'form' => $form
         ]);
     }

@@ -19,65 +19,68 @@
 				<h1>Nous contacter</h1>
 				<p>Les champs possédant une étoile '*' sont obligatoires à remplir</p>
 
-<!--div class="mb-3">
-					<label for="labelNomContact" class="form-label">Nom</label>
-					<input type="text" class="form-control" id="labelNomContact">
+
+				<!--div class="mb-3">
+									<label for="labelNomContact" class="form-label">Nom</label>
+									<input type="text" class="form-control" id="labelNomContact">
+								</div>
+								<div class="mb-3">
+									<label for="labelPrenomContact" class="form-label">Prénom</label>
+									<input type="text" class="form-control" id="labelPrenomContact">
+								</div>
+								<div class="mb-3">
+									<label for="labelGroupeContact" class="form-label">Société/Institution/Groupe (si vous êtes un professionnel, sinon laissez le champ libre)</label>
+									<input type="text" class="form-control" id="labelGroupeContact">
+								</div>
+								<div class="mb-3">
+									<label for="lableAdresseContact" class="form-label">Adresse</label>
+									<input type="text" class="form-control" id="lableAdresseContact">
+								</div>
+								<div class="mb-3">
+									<label for="labelMailContact" class="form-label">Adresse email</label>
+									<input type="email" class="form-control" id="labelMailContact" placeholder="exemple@exemple.com">
+								</div>
+								<div class="mb-3">
+									<label for="labelTelContact" class="form-label">Numéro de téléphone</label>
+									<input type="text" class="form-control" id="labelTelContact" placeholder="01/01/01/01/01">
+								</div>
+								<div class="mb-3">
+									<label for="labelSujetContact" class="form-label">Sujet</label>
+									<input type="text" class="form-control" id="labelSujetContact">
+								</div>
+								<div class="mb-3">
+									<label for="labelMessageContact" class="form-label">Message</label>
+									<textarea class="form-control" id="labelMessageContact" rows="3"></textarea>
+								</div>
+				            <button type="button" class="btn btn-primary boutonValidationForm">Envoyer</button-->
+
+				{{ form_start(form) }}
+
+				<div class="mb-3">
+
+					{{ form_label(form.nomContact) }}
+					{{ form_widget(form.nomContact) }}
 				</div>
 				<div class="mb-3">
-					<label for="labelPrenomContact" class="form-label">Prénom</label>
-					<input type="text" class="form-control" id="labelPrenomContact">
+					{{ form_label(form.prenomContact) }}
+					{{ form_widget(form.prenomContact) }}
 				</div>
 				<div class="mb-3">
-					<label for="labelGroupeContact" class="form-label">Société/Institution/Groupe (si vous êtes un professionnel, sinon laissez le champ libre)</label>
-					<input type="text" class="form-control" id="labelGroupeContact">
+					{{ form_label(form.mailContact) }}
+					{{ form_widget(form.mailContact) }}
 				</div>
 				<div class="mb-3">
-					<label for="lableAdresseContact" class="form-label">Adresse</label>
-					<input type="text" class="form-control" id="lableAdresseContact">
+					{{ form_label(form.sujetContact) }}
+					{{ form_widget(form.sujetContact) }}
 				</div>
 				<div class="mb-3">
-					<label for="labelMailContact" class="form-label">Adresse email</label>
-					<input type="email" class="form-control" id="labelMailContact" placeholder="exemple@exemple.com">
+					{{ form_label(form.messageContact) }}
+					{{ form_widget(form.messageContact) }}
 				</div>
-				<div class="mb-3">
-					<label for="labelTelContact" class="form-label">Numéro de téléphone</label>
-					<input type="text" class="form-control" id="labelTelContact" placeholder="01/01/01/01/01">
-				</div>
-				<div class="mb-3">
-					<label for="labelSujetContact" class="form-label">Sujet</label>
-					<input type="text" class="form-control" id="labelSujetContact">
-				</div>
-				<div class="mb-3">
-					<label for="labelMessageContact" class="form-label">Message</label>
-					<textarea class="form-control" id="labelMessageContact" rows="3"></textarea>
-				</div>
-            <button type="button" class="btn btn-primary boutonValidationForm">Envoyer</button-->
-				
-			{{ form_start(form) }}
 
-				{{ form_label(form.nomContact) }}
-				{{ form_widget(form.nomContact) }}
-
-				{{ form_label(form.prenomContact) }}
-				{{ form_widget(form.prenomContact) }}
-
-				{{ form_label(form.mailContact) }}
-				{{ form_widget(form.mailContact) }}
-
-				{{ form_label(form.sujetContact) }}
-				{{ form_widget(form.sujetContact) }}
-
-				{{ form_label(form.messageContact) }}
-				{{ form_widget(form.messageContact) }}
-
-			{{ form_end(form) }}
-
-
-
-
+				{{ form_end(form) }}
 
 			</div>
-
 
 		</div>
 	</div>

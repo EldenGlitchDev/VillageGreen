@@ -17,21 +17,26 @@ class ContactFormType extends AbstractType
             ->add('nomContact', TextType::class, [
                 'label' => 'Nom',
                 'required' => true,
+                'attr' => ['class' => 'form-control rounded-pill col-8'],
             ])
             ->add('prenomContact', TextType::class, [
                 'label' => 'Prénom',
+                'attr' => ['class' => 'form-control rounded-pill col-8'],
             ])
             ->add('mailContact', TextType::class, [
                 'label' => 'Adresse mail',
                 'required' => true,
+                'attr' => ['class' => 'form-control rounded-pill col-8'],
             ])
             ->add('sujetContact', TextareaType::class, [
                 'label' => 'Sujet',
                 'required' => true,
+                'attr' => ['class' => 'form-control rounded-pill col-8'],
             ])
             ->add('messageContact', TextareaType::class, [
                 'label' => 'Message',
                 'required' => true,
+                'attr' => ['class' => 'form-control rounded-pill col-8'],
             ])
         ;
     }
