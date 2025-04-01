@@ -41,10 +41,10 @@
         <div class='row'>
 
             {% for souscategorie in souscategories %}
-
+<a href="{{ path ('app_article', {souscategorie_id: souscategorie.id}) }}">
                 <p>{{ souscategorie.NomSousCat }}</p>
                 <img src="{{ asset ('img/sous_categories/' ~ souscategorie.ImageSousCat) }}" alt="{{ souscategorie.ImageSousCat }}" width="90px" height="100px" class="rounded">
-
+</a>
             {% endfor %}
 
 

@@ -37,15 +37,11 @@ final class AccueilController extends AbstractController
         ]);
     }
 
-    
-
     #[Route('/sous-categorie-{categorie_id}', name: 'app_sous_categorie', requirements: ['id' => '\d+'])]
     public function SelectSousCategorie(int $categorie_id): Response
     {
             $categories = $this->categorieRepository->find($categorie_id);
-           
-
-
+        
             $souscategorie = $categories->getSousCategorie();
 
             return $this->render('accueil/sousCat.html.twig',[
@@ -61,6 +57,16 @@ final class AccueilController extends AbstractController
         ]);
     }
 
-    
+    #[Route('/article-{souscategorie_id}', name: 'app_article', requirements: ['id' => '\d+'])]
+    public function SelectArticle(int $sous_categorie_id): Response
+    {
+        $souscategorie = $this->sousCategorieRepository->find($sous_categorie_id);
+
+        $articles = $souscategorie->getArticles();
+
+        return $this->render('accueil/article.html.twig',[
+            'articles' => $articles,
+            ]);
+    }
 
 }
